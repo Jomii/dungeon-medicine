@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-  public float moveSpeed = 3.0f;
+  public float moveSpeed = 6.0f;
+  public float dashSpeed = 15.0f;
+  public float dashDuration = 0.25f;
+  public float dashCooldown = 4.0f;
 
   public int maxHealth = 5;
   public float timeInvincible = 2.0f;
@@ -16,6 +19,8 @@ public class PlayerController : MonoBehaviour
   int currentHealth;
   bool isInvincible;
   float invincibleTimer;
+  bool isDashing;
+  float dashTimer;
 
   AudioSource audioSource;
 
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
       lookDirection.Normalize();
     }
 
+
     animator.SetFloat("Look X", lookDirection.x);
     animator.SetFloat("Look Y", lookDirection.y);
     animator.SetFloat("Speed", move.magnitude);
@@ -58,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
     rigidbody2d.MovePosition(position);
 
+
     if (isInvincible)
     {
       invincibleTimer -= Time.deltaTime;
@@ -65,6 +72,17 @@ public class PlayerController : MonoBehaviour
       if (invincibleTimer < 0)
       {
         isInvincible = false;
+      }
+    }
+
+    if (isDashing)
+    {
+      UIDash.instance.SetCooldown(dashTimer);
+      dashTimer -= Time.deltaTime;
+
+      if (dashTimer < 0)
+      {
+        isDashing = false;
       }
     }
 
@@ -86,6 +104,12 @@ public class PlayerController : MonoBehaviour
         }
       }
     }
+
+    if (!isDashing && Input.GetKeyDown(KeyCode.Space))
+    {
+      StartCoroutine(Dash());
+    }
+
   }
 
   public void ChangeHealth(int amount)
@@ -118,6 +142,20 @@ public class PlayerController : MonoBehaviour
     animator.SetTrigger("Launch");
 
     PlaySound(throwSound);
+  }
+
+  IEnumerator Dash()
+  {
+    isDashing = true;
+    dashTimer = dashCooldown;
+
+    // Increase speed for the dashes duration
+    float previousSpeed = moveSpeed;
+    moveSpeed = dashSpeed;
+    yield return new WaitForSeconds(dashDuration);
+
+    // Reset speed previous to dash
+    moveSpeed = previousSpeed;
   }
 
   public void PlaySound(AudioClip clip)

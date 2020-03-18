@@ -97,7 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1c60141367be944a6347cb9c26d92b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 3
+  moveSpeed: 6
+  dashSpeed: 15
+  dashDuration: 0.3
+  dashCooldown: 3
   maxHealth: 5
   timeInvincible: 2
   projectilePrefab: {fileID: 2756664383186097383, guid: 2c18d2db4051efa44b9ded1b9133a57b,
