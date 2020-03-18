@@ -10,7 +10,6 @@ public class LevelExit : MonoBehaviour
 
     if (controller != null)
     {
-      Debug.Log("IM HIT!");
       StartCoroutine(LoadSceneAsync());
     }
   }

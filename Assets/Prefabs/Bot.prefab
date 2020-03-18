@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3061278591360276737}
   - component: {fileID: 7415584431048498339}
   - component: {fileID: 2296467252821025468}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,6 +330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmokeEffect
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322824359860483991, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e2c7a918bdf66841abafb5a2a03ee79, type: 3}

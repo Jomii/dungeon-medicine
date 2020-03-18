@@ -107,6 +107,9 @@ MonoBehaviour:
     type: 3}
   hitClip: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
   throwSound: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
+  attackRange: 2
+  attackSpeed: 0
+  meleeAttack: {fileID: 0}
 --- !u!50 &5071095790892228776
 Rigidbody2D:
   serializedVersion: 4

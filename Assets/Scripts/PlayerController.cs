@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
   public GameObject projectilePrefab;
   public AudioClip hitClip;
   public AudioClip throwSound;
+  public float attackRange = 0.19f;
+  public float attackSpeed = 0.0f;
+  public GameObject meleeAttack;
 
   public int health { get { return currentHealth; } }
   int currentHealth;
@@ -89,6 +92,11 @@ public class PlayerController : MonoBehaviour
 
     if (Input.GetButtonDown("Fire1"))
     {
+      Melee();
+    }
+
+    if (Input.GetButtonDown("Fire2"))
+    {
       Launch();
     }
 
@@ -131,6 +139,20 @@ public class PlayerController : MonoBehaviour
 
     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+  }
+
+  void Melee()
+  {
+    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, aimDirection, attackRange, LayerMask.GetMask("Enemy"));
+    // Draw melee distance for debugging
+    Vector3 start = new Vector3(rigidbody2d.position.x, rigidbody2d.position.y, 1);
+    Vector3 aim = new Vector3(aimDirection.x, aimDirection.y, 1) * attackRange;
+    Debug.DrawRay(start, aim, Color.white, 2.5f);
+
+    if (hit.collider != null)
+    {
+      Destroy(hit.collider.gameObject);
+    }
   }
 
   void Launch()
