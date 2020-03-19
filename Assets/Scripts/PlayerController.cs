@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour
     GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
 
     Projectile projectile = projectileObject.GetComponent<Projectile>();
+    Debug.Log("PLAYER SHOOTING TO: " + aimDirection);
     projectile.Launch(aimDirection, 300);
 
     animator.SetTrigger("Launch");
