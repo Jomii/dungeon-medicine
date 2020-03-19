@@ -5,13 +5,10 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
   public float speed = 3.0f;
-  public bool vertical;
-  public float changeTime = 3.0f;
   public ParticleSystem smokeEffect;
 
   Rigidbody2D rigidbody2d;
-  float timer;
-  int direction = 1;
+  Transform target;
   bool broken = true;
 
   Animator animator;
@@ -19,7 +16,7 @@ public class EnemyController : MonoBehaviour
   void Start()
   {
     rigidbody2d = GetComponent<Rigidbody2D>();
-    timer = changeTime;
+    target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     animator = GetComponent<Animator>();
   }
 
@@ -31,32 +28,19 @@ public class EnemyController : MonoBehaviour
       return;
     }
 
-    timer -= Time.deltaTime;
-
-    if (timer < 0)
-    {
-      direction = -direction;
-      timer = changeTime;
-    }
-
+    // Debug.Log("Target position: " + target.position);
     Vector2 position = rigidbody2d.position;
+    Vector2 directionToTarget = new Vector2(target.position.x - position.x, target.position.y - position.y);
 
-    if (vertical)
+    if (Vector2.Distance(position, target.position) > 1.0f)
     {
-      position.y = position.y + Time.deltaTime * speed * direction;
+      directionToTarget.Normalize();
+      position = position + directionToTarget * speed * Time.deltaTime;
+      rigidbody2d.MovePosition(position);
 
-      animator.SetFloat("Move X", 0);
-      animator.SetFloat("Move Y", direction);
+      animator.SetFloat("Move X", directionToTarget.x);
+      animator.SetFloat("Move Y", directionToTarget.y);
     }
-    else
-    {
-      position.x = position.x + Time.deltaTime * speed * direction;
-
-      animator.SetFloat("Move X", direction);
-      animator.SetFloat("Move Y", 0);
-    }
-
-    rigidbody2d.MovePosition(position);
   }
 
   void OnCollisionEnter2D(Collision2D other)
