@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
   public GameObject projectilePrefab;
   public Transform[] moveSpots;
   public float moveWaitTime;
+  public int projectileSpeed = 400;
 
   Rigidbody2D rigidbody2d;
   Transform target;
@@ -116,7 +117,6 @@ public class EnemyController : MonoBehaviour
     }
   }
 
-  // TODO: Fix shots not going toward player
   void Shoot()
   {
     if (attackTimer < 0)
@@ -124,16 +124,10 @@ public class EnemyController : MonoBehaviour
       attackTimer = attackTime;
       Vector2 aimDirection = (Vector2)target.position - rigidbody2d.position;
       aimDirection.Normalize();
-      Debug.Log("IM SHOOTING to:" + aimDirection);
 
       GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position, Quaternion.identity);
       EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
-      // Draw distance vector for debugging
-      Vector3 start = new Vector3(projectileObject.transform.position.x, projectileObject.transform.position.y, 1);
-      Vector3 aim = new Vector3(aimDirection.x, aimDirection.y, 1) * 1;
-      Debug.DrawRay(start, aim, Color.white, 2.5f);
-      projectile.Launch(aimDirection, 10);
-
+      projectile.Launch(aimDirection, projectileSpeed);
     }
     else
     {
