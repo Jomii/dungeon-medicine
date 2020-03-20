@@ -147,6 +147,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   smokeEffect: {fileID: 2433670900359128613}
+  attackTime: 1
+  ranged: 1
+  projectilePrefab: {fileID: 6390154021860385359, guid: 205d35db87aee6046a4b57806db240fe,
+    type: 3}
   ranged: 0
   projectilePrefab: {fileID: 0}
   moveSpots: []

@@ -6,15 +6,19 @@ public class EnemyController : MonoBehaviour
 {
   public float speed = 3.0f;
   public ParticleSystem smokeEffect;
+  public float attackTime = 1.0f;
   // Ranged behaviour
   public bool ranged = false;
   public GameObject projectilePrefab;
   public Transform[] moveSpots;
   public float moveWaitTime;
+  public int projectileSpeed = 400;
 
   Rigidbody2D rigidbody2d;
   Transform target;
+  Vector2 directionToTarget;
   bool broken = true;
+  float attackTimer = 0.0f;
   // Ranged behaviour
   int randomSpot;
   float waitTime;
@@ -55,7 +59,7 @@ public class EnemyController : MonoBehaviour
   void MeleeBehaviour()
   {
     Vector2 position = rigidbody2d.position;
-    Vector2 directionToTarget = new Vector2(target.position.x - position.x, target.position.y - position.y);
+    directionToTarget = new Vector2(target.position.x - position.x, target.position.y - position.y);
 
     if (Vector2.Distance(position, target.position) > 1.0f)
     {
@@ -71,7 +75,12 @@ public class EnemyController : MonoBehaviour
   void RangedBehaviour()
   {
     Vector2 position = rigidbody2d.position;
-    Vector2 directionToTarget = new Vector2(moveSpots[randomSpot].position.x - position.x, moveSpots[randomSpot].position.y - position.y);
+    directionToTarget = new Vector2(moveSpots[randomSpot].position.x - position.x, moveSpots[randomSpot].position.y - position.y);
+
+    if (Vector2.Distance(position, target.position) < 5.0f)
+    {
+      Shoot();
+    }
 
     if (Vector2.Distance(position, moveSpots[randomSpot].position) > 0.2f)
     {
@@ -96,9 +105,6 @@ public class EnemyController : MonoBehaviour
       }
     }
 
-    // if (Vector2.Distance(position, target.position) < 5.0f) {
-    //   Shoot(directionToTarget);
-    // }
   }
 
   void OnCollisionEnter2D(Collision2D other)
@@ -111,12 +117,23 @@ public class EnemyController : MonoBehaviour
     }
   }
 
-  // void Shoot(Vector2 directionToTarget) {
-  //   GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+  void Shoot()
+  {
+    if (attackTimer < 0)
+    {
+      attackTimer = attackTime;
+      Vector2 aimDirection = (Vector2)target.position - rigidbody2d.position;
+      aimDirection.Normalize();
 
-  //   Projectile projectile = projectileObject.GetComponent<Projectile>();
-  //   projectile.Launch(directionToTarget, 300);
-  // }
+      GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position, Quaternion.identity);
+      EnemyProjectile projectile = projectileObject.GetComponent<EnemyProjectile>();
+      projectile.Launch(aimDirection, projectileSpeed);
+    }
+    else
+    {
+      attackTimer -= Time.deltaTime;
+    }
+  }
 
   public void Fix()
   {
