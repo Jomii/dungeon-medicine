@@ -17,6 +17,11 @@ public class IntroTransition : MonoBehaviour
     if (displayContinue >= 0)
     {
       displayContinue -= Time.deltaTime;
+
+      if (Input.GetButtonDown("Jump"))
+      {
+        displayContinue = 0;
+      }
     }
     else
     {
