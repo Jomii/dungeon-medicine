@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class UIInventory : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+  // Inventory inventory;
+  // Start is called before the first frame update
+  void Start()
+  {
+    // inventory = Inventory.instance;
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  // Update is called once per frame
+  void Update()
+  {
+
+  }
 }
