@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9dd09efd2ec11a4aa84cadd76e433cc, type: 3}
-  m_Name: RootPlant
+  m_Name: Roots2
   m_EditorClassIdentifier: 
   name: New Item
+  icon: {fileID: 0}
   stackSize: 1

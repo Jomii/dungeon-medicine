@@ -3,7 +3,6 @@
 public class Collectible : MonoBehaviour
 {
   public Item item;
-  public int amount = 1;
   public AudioClip collectedClip;
 
   public virtual void Collect()
