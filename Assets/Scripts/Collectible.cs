@@ -5,21 +5,19 @@ public class Collectible : MonoBehaviour
   public Item item;
   public AudioClip collectedClip;
 
-  public virtual void Collect()
-  {
-    Debug.Log("Collected " + item.name);
-    Inventory.instance.Add(item);
-  }
   void OnTriggerEnter2D(Collider2D other)
   {
     PlayerController controller = other.GetComponent<PlayerController>();
 
     if (controller != null)
     {
-      Collect();
+      bool wasCollected = Inventory.instance.Add(item);
 
-      Destroy(gameObject);
-      controller.PlaySound(collectedClip);
+      if (wasCollected)
+      {
+        Destroy(gameObject);
+        controller.PlaySound(collectedClip);
+      }
     }
   }
 }
