@@ -434,6 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 8845622502749931766}
+  selectedItemColor: {r: 1, g: 0.9480699, b: 0.8820755, a: 1}
 --- !u!1 &7976773933229477737
 GameObject:
   m_ObjectHideFlags: 0

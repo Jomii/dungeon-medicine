@@ -20,6 +20,10 @@ public class InventorySlot : MonoBehaviour
       stackText.enabled = true;
       stackText.text = stackSize.ToString();
     }
+    else
+    {
+      stackText.text = "";
+    }
   }
 
   public void ClearSlot()
