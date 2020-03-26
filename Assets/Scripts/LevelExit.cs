@@ -16,7 +16,18 @@ public class LevelExit : MonoBehaviour
 
   IEnumerator LoadSceneAsync()
   {
-    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level1");
+    AsyncOperation asyncLoad;
+
+    if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+    {
+      // After last scene, return to the first scene
+      asyncLoad = SceneManager.LoadSceneAsync(0);
+    }
+    else
+    {
+      // Load the next scene in build stack
+      asyncLoad = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
     while (!asyncLoad.isDone)
     {
