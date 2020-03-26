@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
   new public string name = "New Item";
+  public GameObject prefab;
   public Sprite icon = null;
   public int stackSize = 1;
 

@@ -26,47 +26,57 @@ public class Inventory : MonoBehaviour
 
   public int selectedItemIndex = 0;
   int space = 6;
+  int usedSpace = 0;
 
   /* Add item to inventory, returns 
     true if item was added succesfully. */
-  public bool Add(Item item)
+  public int Add(Item item, int amount)
   {
 
-    int i = items.FindLastIndex(x => x.Item1 != null && x.Item1.name == item.name);
-    // If item in inventory try to add 1 to its stacksize
+    int i = items.FindIndex(x => x.Item1 != null && x.Item1.name == item.name && x.Item2 < x.Item1.stackSize);
+    // If item in inventory try to add amount to its stacksize
     if (i != -1)
     {
       int stackSize = items[i].Item2;
       // Item's stacks are full and no room in inventory
       if (stackSize == item.stackSize)
       {
-        if (space <= 0)
+        if (usedSpace == space)
         {
-          return false;
+          return 0;
         }
       }
-      else
+      else if (stackSize + amount <= item.stackSize)
       {
-        // Stack not full, add 1 to stack
-        items[i] = (item, items[i].Item2 + 1);
+        // Stack not full, add amount to stack
+        items[i] = (item, items[i].Item2 + amount);
 
         UpdateUI();
 
-        return true;
+        return amount;
+      }
+      else
+      {
+        // Room in stack, but not for full amount
+        int addedAmount = amount - items[i].Item2;
+        items[i] = (item, item.stackSize);
+        UpdateUI();
+        return addedAmount + Add(item, amount - stackSize);
       }
     }
-    else if (space <= 0)
+    else if (usedSpace == space)
     {
-      return false;
+      Debug.Log("Inventory full!");
+      return 0;
     }
 
     i = items.FindIndex(x => x.Item1 == null);
-    items[i] = (item, 1);
-    space--;
+    items[i] = (item, amount);
+    usedSpace++;
 
     UpdateUI();
 
-    return true;
+    return amount;
   }
 
   public void UseSelectedItem()
@@ -84,6 +94,7 @@ public class Inventory : MonoBehaviour
       {
         selectedStack.Item1.Use();
         items[selectedItemIndex] = (null, 0);
+        usedSpace--;
       }
     }
     else
@@ -96,9 +107,20 @@ public class Inventory : MonoBehaviour
     UpdateUI();
   }
 
-  public void Remove(Item item)
+  public void DropSelectedItem(Vector2 playerPosition)
   {
-    // items.Remove(item);
+    (Item, int) itemStack = items[selectedItemIndex];
+    if (itemStack.Item1 == null)
+    {
+      return;
+    }
+
+    GameObject collectibleObject = Instantiate(itemStack.Item1.prefab, playerPosition + Vector2.up * 0.5f, Quaternion.identity);
+    Collectible collectible = collectibleObject.GetComponent<Collectible>();
+    collectible.SetStackSize(itemStack.Item2);
+
+    items[selectedItemIndex] = (null, 0);
+    usedSpace--;
     UpdateUI();
   }
 

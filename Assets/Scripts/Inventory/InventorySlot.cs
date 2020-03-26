@@ -32,6 +32,9 @@ public class InventorySlot : MonoBehaviour
 
     icon.sprite = null;
     icon.enabled = false;
+
+    stackText.text = "";
+    stackText.enabled = false;
   }
 }
 

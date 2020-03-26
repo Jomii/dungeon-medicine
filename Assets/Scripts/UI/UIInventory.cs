@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class UIInventory : MonoBehaviour
 {
+  public static UIInventory instance { get; private set; }
   public Transform itemsParent;
   public Color selectedItemColor = new Color(1f, 0.9480699f, 0.8820755f);
   Inventory inventory;
   InventorySlot[] slots;
   InventorySlot activeSlot;
   Color defaultItemColor = new Color(1f, 0.9480699f, 0.8820755f);
+
+  void Awake()
+  {
+    instance = this;
+  }
 
   // Start is called before the first frame update
   void Start()
@@ -68,6 +74,7 @@ public class UIInventory : MonoBehaviour
     {
       inventory.UseSelectedItem();
     }
+
   }
 
   // Change previous slot color to default and new to selected color
@@ -78,7 +85,7 @@ public class UIInventory : MonoBehaviour
     activeSlot = slots[inventory.selectedItemIndex];
     activeSlot.GetComponent<Image>().color = selectedItemColor;
   }
-  void UpdateUI()
+  public void UpdateUI()
   {
     for (int i = 0; i < slots.Length; i++)
     {

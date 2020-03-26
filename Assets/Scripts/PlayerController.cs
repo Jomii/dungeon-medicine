@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
   Animator animator;
   Vector2 lookDirection = new Vector2(1, 0);
   Vector2 aimDirection = new Vector2(1, 0);
+
+  Inventory inventory;
   // Start is called before the first frame update
   void Start()
   {
@@ -41,6 +43,9 @@ public class PlayerController : MonoBehaviour
     currentHealth = maxHealth;
 
     audioSource = GetComponent<AudioSource>();
+
+    inventory = Inventory.instance;
+    inventory.onItemChangedCallback += UIInventory.instance.UpdateUI;
   }
 
   // Update is called once per frame
@@ -100,7 +105,7 @@ public class PlayerController : MonoBehaviour
       Launch();
     }
 
-    if (Input.GetKeyDown(KeyCode.X))
+    if (Input.GetKeyDown(KeyCode.E))
     {
       RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
       if (hit.collider != null)
@@ -112,6 +117,11 @@ public class PlayerController : MonoBehaviour
           character.DisplayDialog();
         }
       }
+    }
+
+    if (Input.GetKeyDown(KeyCode.F))
+    {
+      inventory.DropSelectedItem(rigidbody2d.position);
     }
 
     if (!isDashing && Input.GetKeyDown(KeyCode.Space))
