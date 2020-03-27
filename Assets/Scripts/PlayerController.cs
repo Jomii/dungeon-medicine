@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     animator.SetFloat("Look Y", lookDirection.y);
     animator.SetFloat("Speed", move.magnitude);
 
+    transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
     Vector2 position = rigidbody2d.position;
     position = position + move * moveSpeed * Time.deltaTime;
     rigidbody2d.MovePosition(position);

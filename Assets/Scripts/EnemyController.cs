@@ -64,6 +64,7 @@ public class EnemyController : MonoBehaviour
     if (Vector2.Distance(position, target.position) > 1.0f)
     {
       directionToTarget.Normalize();
+      transform.LookAt(Camera.main.ScreenToWorldPoint(target.position), Vector3.forward);
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
 
