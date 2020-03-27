@@ -115,7 +115,7 @@ public class Inventory : MonoBehaviour
       return;
     }
 
-    GameObject collectibleObject = Instantiate(itemStack.Item1.prefab, playerPosition + Vector2.up * 0.5f, Quaternion.identity);
+    GameObject collectibleObject = Instantiate(itemStack.Item1.prefab, playerPosition + Vector2.up, Quaternion.identity);
     Collectible collectible = collectibleObject.GetComponent<Collectible>();
     collectible.SetStackSize(itemStack.Item2);
 
