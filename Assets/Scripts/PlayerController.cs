@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
   public GameObject projectilePrefab;
   public AudioClip hitClip;
   public AudioClip throwSound;
+  public AudioClip meleeSound;
   public float attackRange = 0.19f;
   public float attackSpeed = 0.0f;
   public GameObject meleeAttack;
@@ -28,8 +29,10 @@ public class PlayerController : MonoBehaviour
   AudioSource audioSource;
 
   Rigidbody2D rigidbody2d;
+  Transform weapon;
 
   Animator animator;
+  Animator weaponAnimator;
   Vector2 lookDirection = new Vector2(1, 0);
   Vector2 aimDirection = new Vector2(1, 0);
 
@@ -39,6 +42,8 @@ public class PlayerController : MonoBehaviour
   {
     rigidbody2d = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
+    weapon = transform.Find("Weapon");
+    weaponAnimator = weapon.GetComponent<Animator>();
 
     currentHealth = maxHealth;
 
@@ -153,16 +158,13 @@ public class PlayerController : MonoBehaviour
 
   void Melee()
   {
-    RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, aimDirection, attackRange, LayerMask.GetMask("Enemy"));
-    // Draw melee distance for debugging
-    Vector3 start = new Vector3(rigidbody2d.position.x, rigidbody2d.position.y, 1);
-    Vector3 aim = new Vector3(aimDirection.x, aimDirection.y, 1) * attackRange;
-    Debug.DrawRay(start, aim, Color.white, 2.5f);
+    weapon.GetComponent<Weapon>().Attack();
 
-    if (hit.collider != null)
-    {
-      Destroy(hit.collider.gameObject);
-    }
+    weapon.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+    weapon.position = rigidbody2d.position + aimDirection;
+
+    weaponAnimator.SetTrigger("Melee");
+    PlaySound(meleeSound);
   }
 
   void Launch()
