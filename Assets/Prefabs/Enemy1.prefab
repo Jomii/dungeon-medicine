@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e877a37d44ce574fba1bca0792fac3c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2cc667d25f80dba42b5d36a3d1cc575b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -120,18 +120,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015261322, y: -0.5631169}
+  m_Offset: {x: -0.005726084, y: 0.22438323}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8, y: 2.112}
+    oldSize: {x: 1.2, y: 1.2}
     newSize: {x: 2.56, y: 2.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75254315, y: 0.79461217}
+  m_Size: {x: 0.44469365, y: 0.78283}
   m_EdgeRadius: 0
 --- !u!114 &3061278591360276737
 MonoBehaviour:
@@ -147,10 +147,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   smokeEffect: {fileID: 3343839823591728267}
+  attackTime: 1
   ranged: 0
   projectilePrefab: {fileID: 0}
   moveSpots: []
   moveWaitTime: 0
+  projectileSpeed: 400
 --- !u!95 &7415584431048498339
 Animator:
   serializedVersion: 3
