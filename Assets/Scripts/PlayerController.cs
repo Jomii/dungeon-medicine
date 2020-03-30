@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
   float invincibleTimer;
   bool isDashing;
   float dashTimer;
+  int projectileAmmo = 0;
 
   AudioSource audioSource;
 
@@ -59,8 +60,8 @@ public class PlayerController : MonoBehaviour
     float horizontal = Input.GetAxis("Horizontal");
     float vertical = Input.GetAxis("Vertical");
 
-    Vector2 crosshairInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    aimDirection = crosshairInWorldPos - rigidbody2d.position;
+    Vector3 crosshairInWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    aimDirection = (Vector2)crosshairInWorldPos - rigidbody2d.position;
     aimDirection.Normalize();
 
     Vector2 move = new Vector2(horizontal, vertical);
@@ -71,11 +72,12 @@ public class PlayerController : MonoBehaviour
       lookDirection.Normalize();
     }
 
-    animator.SetFloat("Look X", lookDirection.x);
-    animator.SetFloat("Look Y", lookDirection.y);
-    animator.SetFloat("Speed", move.magnitude);
+    // animator.SetFloat("Look X", lookDirection.x);
+    // animator.SetFloat("Look Y", lookDirection.y);
+    // animator.SetFloat("Speed", move.magnitude);
 
-    transform.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
+    crosshairInWorldPos.z = -90;
+    transform.LookAt(crosshairInWorldPos, Vector3.forward);
     Vector2 position = rigidbody2d.position;
     position = position + move * moveSpeed * Time.deltaTime;
     rigidbody2d.MovePosition(position);
@@ -168,8 +170,17 @@ public class PlayerController : MonoBehaviour
     PlaySound(meleeSound);
   }
 
+  public void Equip(GameObject projectile)
+  {
+    projectilePrefab = projectile;
+  }
   void Launch()
   {
+    if (inventory.rangedItem.Item1 == null)
+    {
+      return;
+    }
+
     GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
 
     Projectile projectile = projectileObject.GetComponent<Projectile>();
@@ -178,6 +189,7 @@ public class PlayerController : MonoBehaviour
     animator.SetTrigger("Launch");
 
     PlaySound(throwSound);
+    inventory.UseRanged();
   }
 
   IEnumerator Dash()

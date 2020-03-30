@@ -8,6 +8,8 @@ public class Item : ScriptableObject
   public GameObject prefab;
   public Sprite icon = null;
   public int stackSize = 1;
+  [Tooltip("When used is the whole stack consumed?")]
+  public bool useStack = false;
 
   public virtual void Use()
   {

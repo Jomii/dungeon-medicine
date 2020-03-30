@@ -7,10 +7,12 @@ public class UIInventory : MonoBehaviour
 {
   public static UIInventory instance { get; private set; }
   public Transform itemsParent;
+  public Transform rangedParent;
   public Color selectedItemColor = new Color(1f, 0.9480699f, 0.8820755f);
   Inventory inventory;
   InventorySlot[] slots;
   InventorySlot activeSlot;
+  InventorySlot rangedSlot;
   Color defaultItemColor = new Color(1f, 0.9480699f, 0.8820755f);
 
   void Awake()
@@ -26,6 +28,7 @@ public class UIInventory : MonoBehaviour
 
     // Init slots and active slot
     slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+    rangedSlot = rangedParent.GetComponent<InventorySlot>();
     activeSlot = slots[inventory.selectedItemIndex];
     Image activeSlotImage = activeSlot.GetComponent<Image>();
     // Store default color and set selected color 
@@ -85,8 +88,18 @@ public class UIInventory : MonoBehaviour
     activeSlot = slots[inventory.selectedItemIndex];
     activeSlot.GetComponent<Image>().color = selectedItemColor;
   }
+
   public void UpdateUI()
   {
+    if (inventory.rangedItem.Item1 != null)
+    {
+      rangedSlot.AddItem(inventory.rangedItem.Item1, inventory.rangedItem.Item2);
+    }
+    else
+    {
+      rangedSlot.ClearSlot();
+    }
+
     for (int i = 0; i < slots.Length; i++)
     {
       if (i < inventory.items.Count)

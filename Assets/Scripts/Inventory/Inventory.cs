@@ -6,7 +6,9 @@ public class Inventory : MonoBehaviour
   public static Inventory instance;
   public delegate void OnItemChanged();
   public OnItemChanged onItemChangedCallback;
+  public (Item, int) rangedItem = (null, 0);
   public List<(Item, int)> items = new List<(Item, int)>(6);
+  (Item, int) swapItem = (null, 0);
 
   void Awake()
   {
@@ -88,13 +90,18 @@ public class Inventory : MonoBehaviour
       return;
     }
 
-    if (selectedStack.Item2 - 1 < 1)
+    if (selectedStack.Item1.useStack || selectedStack.Item2 - 1 < 1)
     {
-      if (selectedStack.Item1 != null)
+      selectedStack.Item1.Use();
+
+      if (swapItem.Item1 == null)
       {
-        selectedStack.Item1.Use();
         items[selectedItemIndex] = (null, 0);
         usedSpace--;
+      }
+      else
+      {
+        items[selectedItemIndex] = swapItem;
       }
     }
     else
@@ -121,6 +128,32 @@ public class Inventory : MonoBehaviour
 
     items[selectedItemIndex] = (null, 0);
     usedSpace--;
+    UpdateUI();
+  }
+
+  public void SetRanged()
+  {
+    if (rangedItem.Item1 != null)
+    {
+      swapItem = rangedItem;
+    }
+    else
+    {
+      swapItem = (null, 0);
+    }
+
+    rangedItem = items[selectedItemIndex];
+  }
+
+  public void UseRanged()
+  {
+    rangedItem = (rangedItem.Item1, rangedItem.Item2 - 1);
+
+    if (rangedItem.Item2 <= 0)
+    {
+      rangedItem = (null, 0);
+    }
+
     UpdateUI();
   }
 

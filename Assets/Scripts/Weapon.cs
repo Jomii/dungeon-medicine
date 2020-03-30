@@ -21,7 +21,6 @@ public class Weapon : MonoBehaviour
     else if (weaponCollider.enabled)
     {
       weaponCollider.enabled = false;
-      Debug.Log("Weapon collider disabled");
     }
   }
   void OnTriggerStay2D(Collider2D other)
