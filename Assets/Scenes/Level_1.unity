@@ -543,8 +543,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use keys 1-6 to pick an item from your inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -615,7 +616,7 @@ MonoBehaviour:
     spaceCount: 9
     wordCount: 10
     linkCount: 0
-    lineCount: 2
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1282,8 +1283,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use Q to use an item and F to drop an item from your inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7759,8 +7761,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use scroll wheel to open your inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7914,8 +7917,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use WASD to move
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10565,8 +10569,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use mouse button 1 for melee attack and mouse button 2 for ranged attack
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10637,7 +10642,7 @@ MonoBehaviour:
     spaceCount: 13
     wordCount: 14
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -11273,8 +11278,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Use space to dash
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
+  m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11546,7 +11552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124728762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.7190228, y: -0.009998569, z: -10}
+  m_LocalPosition: {x: -4.812565, y: -0.009998569, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2131389032}
