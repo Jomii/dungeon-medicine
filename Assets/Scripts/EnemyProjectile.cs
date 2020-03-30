@@ -14,7 +14,7 @@ public class EnemyProjectile : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (transform.position.magnitude > 1000.0f)
+    if (transform.position.magnitude > 200.0f)
     {
       Destroy(gameObject);
     }

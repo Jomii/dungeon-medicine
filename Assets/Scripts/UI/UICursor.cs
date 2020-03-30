@@ -14,7 +14,8 @@ public class UICursor : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+    Vector2 hotspot = new Vector2(cursorTexture.width / 2, cursorTexture.height / 2);
+    Cursor.SetCursor(cursorTexture, hotspot, CursorMode.Auto);
   }
 
 }
