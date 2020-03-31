@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
   float invincibleTimer;
   bool isDashing;
   float dashTimer;
-  int projectileAmmo = 0;
 
   AudioSource audioSource;
 
@@ -46,7 +45,7 @@ public class PlayerController : MonoBehaviour
     weapon = transform.Find("Weapon");
     weaponAnimator = weapon.GetComponent<Animator>();
 
-    currentHealth = maxHealth;
+    currentHealth = GameState.instance.health;
 
     audioSource = GetComponent<AudioSource>();
 
@@ -209,5 +208,12 @@ public class PlayerController : MonoBehaviour
   public void PlaySound(AudioClip clip)
   {
     audioSource.PlayOneShot(clip);
+  }
+
+  public void Save()
+  {
+    GameState.instance.health = currentHealth;
+    GameState.instance.inventoryItems = inventory.items;
+    // Debug.Log(GameState.Instance.inventory.items);
   }
 }

@@ -152,7 +152,6 @@ GameObject:
   - component: {fileID: 4393897237489988455}
   - component: {fileID: 4393897237489988452}
   - component: {fileID: 4393897237489988454}
-  - component: {fileID: 3339698729395928735}
   - component: {fileID: 5071095790892228776}
   - component: {fileID: 735838944822374497}
   - component: {fileID: 6148142526964222189}
@@ -253,19 +252,6 @@ MonoBehaviour:
   attackRange: 2
   attackSpeed: 0
   meleeAttack: {fileID: 0}
---- !u!114 &3339698729395928735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4393897237489988453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f81ee97c1f8ba5419dd2d4f29510d63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedItemIndex: 0
 --- !u!50 &5071095790892228776
 Rigidbody2D:
   serializedVersion: 4

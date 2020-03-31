@@ -12,7 +12,7 @@ public class ThrowableItem : Item
   {
     Inventory.instance.SetRanged();
 
-    PlayerController playerController = Inventory.instance.GetComponent<PlayerController>();
+    PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     playerController.Equip(projectilePrefab);
   }
 }
