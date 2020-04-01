@@ -10,6 +10,7 @@ public class LevelExit : MonoBehaviour
 
     if (controller != null)
     {
+      controller.Save();
       StartCoroutine(LoadSceneAsync());
     }
   }

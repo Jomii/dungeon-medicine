@@ -7,7 +7,7 @@ public class HealItem : Item
 {
   public override void Use()
   {
-    PlayerController playerController = Inventory.instance.GetComponent<PlayerController>();
+    PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     playerController.ChangeHealth(1);
   }
 }

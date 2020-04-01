@@ -24,6 +24,11 @@ public class UIInventory : MonoBehaviour
   void Start()
   {
     inventory = Inventory.instance;
+    if (inventory.items[0].Item1 != null)
+    {
+      Debug.Log(inventory.items[0].Item1.name);
+    }
+    // inventory.onItemChangedCallback -= UpdateUI;
     inventory.onItemChangedCallback += UpdateUI;
 
     // Init slots and active slot
@@ -34,6 +39,13 @@ public class UIInventory : MonoBehaviour
     // Store default color and set selected color 
     defaultItemColor = activeSlotImage.color;
     activeSlotImage.color = selectedItemColor;
+    UpdateUI();
+  }
+
+  void OnDestroy()
+  {
+    inventory.onItemChangedCallback = null;
+    Debug.Log("UI Inventory destroyed");
   }
 
   // Update is called once per frame

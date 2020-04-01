@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   name: Knife
-  prefab: {fileID: 0}
+  prefab: {fileID: 7577748166620346734, guid: 6ae63a213d5f0424581e379214c857f4, type: 3}
   icon: {fileID: 21300000, guid: 8a1f4620840f99b4296ddaaa762c860a, type: 3}
   stackSize: 5
   useStack: 1

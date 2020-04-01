@@ -12,8 +12,8 @@ public class InventorySlot : MonoBehaviour
   {
     item = newItem;
 
-    icon.sprite = item.icon;
     icon.enabled = true;
+    icon.sprite = item.icon;
 
     if (stackSize > 1)
     {
@@ -30,11 +30,11 @@ public class InventorySlot : MonoBehaviour
   {
     item = null;
 
-    icon.sprite = null;
     icon.enabled = false;
+    icon.sprite = null;
 
-    stackText.text = "";
     stackText.enabled = false;
+    stackText.text = "";
   }
 }
 
