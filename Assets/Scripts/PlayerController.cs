@@ -56,6 +56,11 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if (PauseMenu.GameIsPaused)
+    {
+      return;
+    }
+
     float horizontal = Input.GetAxis("Horizontal");
     float vertical = Input.GetAxis("Vertical");
 
