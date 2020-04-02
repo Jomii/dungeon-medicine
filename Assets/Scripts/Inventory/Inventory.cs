@@ -25,6 +25,24 @@ public class Inventory : MonoBehaviour
     }
     else if (instance != this)
     {
+      List<(Item, int)> gamestateItems = GameState.instance.inventoryItems;
+
+      if (gamestateItems.Count > 0)
+      {
+        // Set items to match GameState
+        instance.items = new List<(Item, int)>(gamestateItems);
+      }
+      else
+      {
+        // No items saved in GameState, reset inventory
+        instance.items.Clear();
+
+        for (int i = 0; i < 6; i++)
+        {
+          instance.items.Add((null, 0));
+        }
+      }
+
       Destroy(gameObject);
     }
 
