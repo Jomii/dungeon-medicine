@@ -19515,6 +19515,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4393897237489988454, guid: bc8c4f16c3362084194fa1956b1e37a5,
+        type: 3}
+      propertyPath: throwSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 66d516d86bf5e3f45b0d1fd7b2533c5f, type: 3}
     - target: {fileID: 4393897237489988455, guid: bc8c4f16c3362084194fa1956b1e37a5,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -1526,6 +1526,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1791946775723033396, guid: 6ae63a213d5f0424581e379214c857f4,
+        type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fe5ff76798c2e0489b99f2a0f130345, type: 3}
     - target: {fileID: 3951564269283683848, guid: 6ae63a213d5f0424581e379214c857f4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1599,6 +1604,10 @@ PrefabInstance:
       propertyPath: stackSize
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28053,6 +28062,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28122,6 +28135,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28195,6 +28212,10 @@ PrefabInstance:
       propertyPath: stackSize
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28363,6 +28384,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28733,6 +28758,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1755949121, guid: df67f6d964805514e8887c080339cba1, type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a798407c8619754cacbb3246b40d328, type: 3}
     - target: {fileID: 3317042812336129405, guid: df67f6d964805514e8887c080339cba1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29079,6 +29108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4393897237489988454, guid: bc8c4f16c3362084194fa1956b1e37a5,
+        type: 3}
+      propertyPath: throwSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 66d516d86bf5e3f45b0d1fd7b2533c5f, type: 3}
     - target: {fileID: 4393897237489988455, guid: bc8c4f16c3362084194fa1956b1e37a5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30219,6 +30253,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1791946775723033396, guid: 6ae63a213d5f0424581e379214c857f4,
+        type: 3}
+      propertyPath: collectedClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1fe5ff76798c2e0489b99f2a0f130345, type: 3}
     - target: {fileID: 3951564269283683848, guid: 6ae63a213d5f0424581e379214c857f4,
         type: 3}
       propertyPath: m_LocalPosition.x
