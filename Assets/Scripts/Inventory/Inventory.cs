@@ -25,6 +25,24 @@ public class Inventory : MonoBehaviour
     }
     else if (instance != this)
     {
+      List<(Item, int)> gamestateItems = GameState.instance.inventoryItems;
+      Debug.Log("gamestat inventoryitems count: " + GameState.instance.inventoryItems.Count);
+
+      if (gamestateItems.Count > 0)
+      {
+        // Set items to match GameState
+        instance.items = new List<(Item, int)>(gamestateItems);
+      }
+      else
+      {
+        // No items saved in GameState, reset inventory
+        for (int i = 0; i < 6; i++)
+        {
+          items.Add((null, 0));
+        }
+      }
+
+      Debug.Log("Destoryed duplicate inventory");
       Destroy(gameObject);
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
     weaponAnimator = weapon.GetComponent<Animator>();
 
     currentHealth = GameState.instance.health;
+    UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
 
     audioSource = GetComponent<AudioSource>();
 
@@ -161,6 +163,11 @@ public class PlayerController : MonoBehaviour
 
     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
+
+    if (currentHealth <= 0)
+    {
+      Die();
+    }
   }
 
   void Melee()
@@ -210,6 +217,11 @@ public class PlayerController : MonoBehaviour
     moveSpeed = previousSpeed;
   }
 
+  void Die()
+  {
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+  }
+
   public void PlaySound(AudioClip clip)
   {
     audioSource.PlayOneShot(clip);
@@ -218,7 +230,6 @@ public class PlayerController : MonoBehaviour
   public void Save()
   {
     GameState.instance.health = currentHealth;
-    GameState.instance.inventoryItems = inventory.items;
-    // Debug.Log(GameState.Instance.inventory.items);
+    GameState.instance.inventoryItems = new List<(Item, int)>(inventory.items);
   }
 }
