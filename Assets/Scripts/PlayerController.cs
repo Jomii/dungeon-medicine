@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
   public AudioClip hitClip;
   public AudioClip throwSound;
   public AudioClip meleeSound;
+  public AudioClip dashSound;
   public float attackRange = 0.19f;
   public float attackSpeed = 0.0f;
-  public GameObject meleeAttack;
 
   public int health { get { return currentHealth; } }
   int currentHealth;
@@ -207,6 +207,8 @@ public class PlayerController : MonoBehaviour
   {
     isDashing = true;
     dashTimer = dashCooldown;
+
+    PlaySound(dashSound);
 
     // Increase speed for the dashes duration
     float previousSpeed = moveSpeed;

@@ -60,11 +60,12 @@ public class EnemyController : MonoBehaviour
   {
     Vector2 position = rigidbody2d.position;
     directionToTarget = new Vector2(target.position.x - position.x, target.position.y - position.y);
+    float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+    transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
     if (Vector2.Distance(position, target.position) > 1.0f)
     {
       directionToTarget.Normalize();
-      transform.LookAt(Camera.main.ScreenToWorldPoint(target.position), Vector3.forward);
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
 
@@ -77,6 +78,8 @@ public class EnemyController : MonoBehaviour
   {
     Vector2 position = rigidbody2d.position;
     directionToTarget = new Vector2(moveSpots[randomSpot].position.x - position.x, moveSpots[randomSpot].position.y - position.y);
+    float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+    transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
     if (Vector2.Distance(position, target.position) < 5.0f)
     {
