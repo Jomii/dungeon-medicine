@@ -45,6 +45,12 @@ public class UIInventory : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    // Don't update inventory UI when crafting
+    if (UICrafting.instance.enabled)
+    {
+      return;
+    }
+
     float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
 
     if (Input.GetKeyDown(KeyCode.Alpha1))

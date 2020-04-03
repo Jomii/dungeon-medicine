@@ -1,4 +1,5 @@
-﻿
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
@@ -10,6 +11,7 @@ public class Item : ScriptableObject
   public int stackSize = 1;
   [Tooltip("When used is the whole stack consumed?")]
   public bool useStack = false;
+  public List<Item> ingredients;
 
   public virtual void Use()
   {
@@ -17,5 +19,10 @@ public class Item : ScriptableObject
     // Something might happen
 
     Debug.Log("Using " + name);
+  }
+
+  public virtual void Craft()
+  {
+    Debug.Log("Crafting " + name);
   }
 }

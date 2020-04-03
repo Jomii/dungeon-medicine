@@ -10,4 +10,10 @@ public class HealItem : Item
     PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     playerController.ChangeHealth(1);
   }
+
+  public override void Craft()
+  {
+    // Remove materials from inventory
+    // Add this item to inventory
+  }
 }
