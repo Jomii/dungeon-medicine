@@ -11,9 +11,4 @@ public class HealItem : Item
     playerController.ChangeHealth(1);
   }
 
-  public override void Craft()
-  {
-    // Remove materials from inventory
-    // Add this item to inventory
-  }
 }

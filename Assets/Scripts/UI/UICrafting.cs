@@ -25,6 +25,7 @@ public class UICrafting : MonoBehaviour
   void Awake()
   {
     instance = this;
+    ToggleVisible();
   }
 
   // Start is called before the first frame update
@@ -47,6 +48,13 @@ public class UICrafting : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+
+    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.E))
+    {
+      this.enabled = false;
+      this.transform.gameObject.SetActive(false);
+    }
+
     int mouseScroll = (int)Input.GetAxis("Mouse ScrollWheel");
 
     if (mouseScroll != 0)
@@ -64,24 +72,24 @@ public class UICrafting : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.Space))
     {
       ingredients = AllIngredients();
-      if (!ingredients)
+
+      if (!ingredients || Inventory.instance.IsFull(activeSlot.item.name))
       {
-        mask.color = Color.red;
-        craftText.color = Color.red;
-        craftText.text = "Not enough ingredients!";
+        CannotCraft();
       }
       mask.enabled = true;
     }
 
     if (Input.GetKey(KeyCode.Space))
     {
-      if (craftTimer > 0 && ingredients)
+      if (craftTimer > 0 && ingredients && !Inventory.instance.IsFull(activeSlot.item.name))
       {
         CraftSelected();
       }
       else
       {
         craftTimer = craftTime;
+        CannotCraft();
       }
     }
 
@@ -96,12 +104,18 @@ public class UICrafting : MonoBehaviour
     }
   }
 
-  // Return true if all ingredients of active slot item exist in inventory 
+  public void ToggleVisible()
+  {
+    this.enabled = !this.enabled;
+    this.transform.gameObject.SetActive(this.enabled);
+  }
+
+  // Return true if all ingredients of active slot exist in inventory 
   bool AllIngredients()
   {
     List<(Item, int)> ingredientList = new List<(Item, int)>();
 
-    if (activeSlot.item.ingredients.Count <= 0)
+    if (!activeSlot.item || activeSlot.item.ingredients.Count <= 0)
     {
       return false;
     }
@@ -134,6 +148,14 @@ public class UICrafting : MonoBehaviour
     return true;
   }
 
+  void CannotCraft()
+  {
+    mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize);
+    mask.color = Color.red;
+    craftText.color = Color.red;
+    craftText.text = !ingredients ? "Not enough ingredients!" : "No room for item in inventory!";
+  }
+
   void CraftSelected()
   {
     craftTimer -= Time.deltaTime;
@@ -142,8 +164,9 @@ public class UICrafting : MonoBehaviour
 
     if (craftTimer <= 0)
     {
-      Debug.Log("Crafted " + activeSlot.item.name);
       activeSlot.item.Craft();
+      ingredients = AllIngredients();
+      craftTimer = craftTime;
     }
   }
 }

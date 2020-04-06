@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: HealItem
   m_EditorClassIdentifier: 
   name: HealItem
-  prefab: {fileID: 8212269761049694747, guid: df67f6d964805514e8887c080339cba1, type: 3}
-  icon: {fileID: 21300000, guid: 5d271affcdb9c564695bfa9eb7d3cf2b, type: 3}
+  prefab: {fileID: 5815499225301839929, guid: ab6964de87a9337408fe4ac560f464fc, type: 3}
+  icon: {fileID: 21300000, guid: 39df2647118832c4fa72e9abed19ba1e, type: 3}
   stackSize: 2
+  useStack: 0
+  ingredients:
+  - {fileID: 11400000, guid: bd178e1ddf4323e46a7b674bd3f350d3, type: 2}
+  - {fileID: 11400000, guid: e2674ddc4b3fd264796f20a06bc53aa5, type: 2}

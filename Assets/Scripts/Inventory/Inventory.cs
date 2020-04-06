@@ -136,6 +136,33 @@ public class Inventory : MonoBehaviour
     UpdateUI();
   }
 
+  public void removeItem(string name)
+  {
+    for (int i = items.Count - 1; i >= 0; i--)
+    {
+      if (items[i].Item1 == null)
+      {
+        continue;
+      }
+
+      if (items[i].Item1.name == name)
+      {
+
+        if (items[i].Item2 - 1 <= 0)
+        {
+          items[i] = (null, 0);
+          usedSpace--;
+        }
+        else
+        {
+          items[i] = (items[i].Item1, items[i].Item2 - 1);
+        }
+
+        return;
+      }
+    }
+  }
+
   public void DropSelectedItem(Vector2 playerPosition)
   {
     (Item, int) itemStack = items[selectedItemIndex];
@@ -198,6 +225,20 @@ public class Inventory : MonoBehaviour
     if (value >= 0 && value < space)
     {
       selectedItemIndex = value;
+    }
+  }
+
+  public bool IsFull(string name)
+  {
+    int i = items.FindIndex(x => x.Item1 != null && x.Item1.name == name && x.Item2 < x.Item1.stackSize);
+
+    if (i == -1 && usedSpace >= space)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
     }
   }
 

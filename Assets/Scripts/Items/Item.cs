@@ -8,6 +8,7 @@ public class Item : ScriptableObject
   new public string name = "New Item";
   public GameObject prefab;
   public Sprite icon = null;
+  [Tooltip("Maximum amount a player can carry")]
   public int stackSize = 1;
   [Tooltip("When used is the whole stack consumed?")]
   public bool useStack = false;
@@ -24,5 +25,12 @@ public class Item : ScriptableObject
   public virtual void Craft()
   {
     Debug.Log("Crafting " + name);
+
+    foreach (var item in ingredients)
+    {
+      Inventory.instance.removeItem(item.name);
+    }
+
+    Inventory.instance.Add(this, 1);
   }
 }
