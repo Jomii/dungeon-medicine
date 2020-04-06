@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
   }
   void Launch()
   {
-    if (inventory.rangedItem.Item1 == null)
+    if (!projectilePrefab || inventory.rangedItem.Item1 == null)
     {
       return;
     }

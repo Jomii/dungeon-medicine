@@ -27,15 +27,17 @@ public class Inventory : MonoBehaviour
     {
       List<(Item, int)> gamestateItems = GameState.instance.inventoryItems;
 
-      if (gamestateItems.Count > 0)
+      if (gamestateItems.Count > 0 || GameState.instance.rangedItem.Item1 != null)
       {
         // Set items to match GameState
         instance.items = new List<(Item, int)>(gamestateItems);
+        instance.rangedItem = GameState.instance.rangedItem;
       }
       else
       {
         // No items saved in GameState, reset inventory
         instance.items.Clear();
+        instance.rangedItem = (null, 0);
 
         for (int i = 0; i < 6; i++)
         {
@@ -82,10 +84,11 @@ public class Inventory : MonoBehaviour
       else
       {
         // Room in stack, but not for full amount
-        int addedAmount = amount - items[i].Item2;
+        int addedAmount = item.stackSize - items[i].Item2;
+        // int addedAmount = amount - items[i].Item2;
         items[i] = (item, item.stackSize);
         UpdateUI();
-        return addedAmount + Add(item, amount - stackSize);
+        return addedAmount + Add(item, amount - addedAmount);
       }
     }
     else if (usedSpace == space)

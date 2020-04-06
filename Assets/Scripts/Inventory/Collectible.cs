@@ -50,7 +50,7 @@ public class Collectible : MonoBehaviour
       else
       {
         Debug.Log("Collected amount: " + collectedAmount);
-        SetStackSize(stackSize - collectedAmount);
+        SetStackSize(stackSize + collectedAmount);
       }
     }
   }
