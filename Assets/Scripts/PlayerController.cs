@@ -195,7 +195,17 @@ public class PlayerController : MonoBehaviour
     GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position, Quaternion.identity);
 
     Projectile projectile = projectileObject.GetComponent<Projectile>();
-    projectile.Launch(aimDirection, 300);
+
+
+    // Debug.Log("distance to cursor: " + distanceToTarget);
+    if (projectile.isAOE)
+    {
+      projectile.Launch(aimDirection, 300, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
+    else
+    {
+      projectile.Launch(aimDirection, 300);
+    }
 
     animator.SetTrigger("Launch");
 
