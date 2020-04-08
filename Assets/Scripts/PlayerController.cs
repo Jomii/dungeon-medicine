@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour
   public AudioClip hitClip;
   public AudioClip throwSound;
   public AudioClip meleeSound;
+  public AudioClip dashSound;
   public float attackRange = 0.19f;
   public float attackSpeed = 0.0f;
-  public GameObject meleeAttack;
 
   public int health { get { return currentHealth; } }
   int currentHealth;
@@ -119,9 +119,9 @@ public class PlayerController : MonoBehaviour
       Launch();
     }
 
-    if (Input.GetKeyDown(KeyCode.E))
+    if (!UICrafting.instance.enabled && Input.GetKeyDown(KeyCode.E))
     {
-      RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+      RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, aimDirection, 2f, LayerMask.GetMask("NPC"));
       if (hit.collider != null)
       {
         NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
       inventory.DropSelectedItem(rigidbody2d.position);
     }
 
-    if (!isDashing && Input.GetKeyDown(KeyCode.Space))
+    if (!UICrafting.instance.enabled && !isDashing && Input.GetKeyDown(KeyCode.Space))
     {
       StartCoroutine(Dash());
     }
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
   }
   void Launch()
   {
-    if (inventory.rangedItem.Item1 == null)
+    if (!projectilePrefab || inventory.rangedItem.Item1 == null)
     {
       return;
     }
@@ -195,7 +195,17 @@ public class PlayerController : MonoBehaviour
     GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position, Quaternion.identity);
 
     Projectile projectile = projectileObject.GetComponent<Projectile>();
-    projectile.Launch(aimDirection, 300);
+
+
+    // Debug.Log("distance to cursor: " + distanceToTarget);
+    if (projectile.isAOE)
+    {
+      projectile.Launch(aimDirection, 300, Camera.main.ScreenToWorldPoint(Input.mousePosition));
+    }
+    else
+    {
+      projectile.Launch(aimDirection, 300);
+    }
 
     animator.SetTrigger("Launch");
 
@@ -207,6 +217,8 @@ public class PlayerController : MonoBehaviour
   {
     isDashing = true;
     dashTimer = dashCooldown;
+
+    PlaySound(dashSound);
 
     // Increase speed for the dashes duration
     float previousSpeed = moveSpeed;

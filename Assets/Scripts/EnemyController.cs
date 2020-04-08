@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+  public int maxHealth = 1;
+  public int health { get { return currentHealth; } }
+  public float timeInvincible = 0.5f;
   public float speed = 3.0f;
   public ParticleSystem smokeEffect;
   public float attackTime = 1.0f;
@@ -14,10 +17,13 @@ public class EnemyController : MonoBehaviour
   public float moveWaitTime;
   public int projectileSpeed = 400;
 
+  int currentHealth;
+  bool isInvincible;
+  float invincibleTimer;
   Rigidbody2D rigidbody2d;
   Transform target;
   Vector2 directionToTarget;
-  bool broken = true;
+  bool alive = true;
   float attackTimer = 0.0f;
   // Ranged behaviour
   int randomSpot;
@@ -31,6 +37,8 @@ public class EnemyController : MonoBehaviour
     target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     animator = GetComponent<Animator>();
 
+    currentHealth = maxHealth;
+
     if (ranged)
     {
       waitTime = moveWaitTime;
@@ -41,9 +49,19 @@ public class EnemyController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (!broken)
+    if (!alive)
     {
       return;
+    }
+
+    if (isInvincible)
+    {
+      invincibleTimer -= Time.deltaTime;
+
+      if (invincibleTimer < 0)
+      {
+        isInvincible = false;
+      }
     }
 
     if (!ranged)
@@ -60,11 +78,12 @@ public class EnemyController : MonoBehaviour
   {
     Vector2 position = rigidbody2d.position;
     directionToTarget = new Vector2(target.position.x - position.x, target.position.y - position.y);
+    float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+    transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
     if (Vector2.Distance(position, target.position) > 1.0f)
     {
       directionToTarget.Normalize();
-      transform.LookAt(Camera.main.ScreenToWorldPoint(target.position), Vector3.forward);
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
 
@@ -77,6 +96,8 @@ public class EnemyController : MonoBehaviour
   {
     Vector2 position = rigidbody2d.position;
     directionToTarget = new Vector2(moveSpots[randomSpot].position.x - position.x, moveSpots[randomSpot].position.y - position.y);
+    float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
+    transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
     if (Vector2.Distance(position, target.position) < 5.0f)
     {
@@ -136,11 +157,32 @@ public class EnemyController : MonoBehaviour
     }
   }
 
-  public void Fix()
+  public void ChangeHealth(int amount)
   {
-    broken = false;
+    if (amount < 0)
+    {
+
+      if (isInvincible)
+      {
+        return;
+      }
+
+      isInvincible = true;
+      invincibleTimer = timeInvincible;
+    }
+
+    currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
+    if (currentHealth <= 0)
+    {
+      Die();
+    }
+  }
+  public void Die()
+  {
+    alive = false;
     rigidbody2d.simulated = false;
-    animator.SetTrigger("Fixed");
-    smokeEffect.Stop();
+    // animator.SetTrigger("Fixed");
+    // smokeEffect.Stop();
   }
 }

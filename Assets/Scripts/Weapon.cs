@@ -29,7 +29,7 @@ public class Weapon : MonoBehaviour
 
     if (e != null)
     {
-      e.Fix();
+      e.ChangeHealth(-1);
     }
   }
 

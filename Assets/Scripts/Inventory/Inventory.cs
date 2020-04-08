@@ -27,15 +27,17 @@ public class Inventory : MonoBehaviour
     {
       List<(Item, int)> gamestateItems = GameState.instance.inventoryItems;
 
-      if (gamestateItems.Count > 0)
+      if (gamestateItems.Count > 0 || GameState.instance.rangedItem.Item1 != null)
       {
         // Set items to match GameState
         instance.items = new List<(Item, int)>(gamestateItems);
+        instance.rangedItem = GameState.instance.rangedItem;
       }
       else
       {
         // No items saved in GameState, reset inventory
         instance.items.Clear();
+        instance.rangedItem = (null, 0);
 
         for (int i = 0; i < 6; i++)
         {
@@ -82,10 +84,11 @@ public class Inventory : MonoBehaviour
       else
       {
         // Room in stack, but not for full amount
-        int addedAmount = amount - items[i].Item2;
+        int addedAmount = item.stackSize - items[i].Item2;
+        // int addedAmount = amount - items[i].Item2;
         items[i] = (item, item.stackSize);
         UpdateUI();
-        return addedAmount + Add(item, amount - stackSize);
+        return addedAmount + Add(item, amount - addedAmount);
       }
     }
     else if (usedSpace == space)
@@ -134,6 +137,33 @@ public class Inventory : MonoBehaviour
     }
 
     UpdateUI();
+  }
+
+  public void removeItem(string name)
+  {
+    for (int i = items.Count - 1; i >= 0; i--)
+    {
+      if (items[i].Item1 == null)
+      {
+        continue;
+      }
+
+      if (items[i].Item1.name == name)
+      {
+
+        if (items[i].Item2 - 1 <= 0)
+        {
+          items[i] = (null, 0);
+          usedSpace--;
+        }
+        else
+        {
+          items[i] = (items[i].Item1, items[i].Item2 - 1);
+        }
+
+        return;
+      }
+    }
   }
 
   public void DropSelectedItem(Vector2 playerPosition)
@@ -198,6 +228,20 @@ public class Inventory : MonoBehaviour
     if (value >= 0 && value < space)
     {
       selectedItemIndex = value;
+    }
+  }
+
+  public bool IsFull(string name)
+  {
+    int i = items.FindIndex(x => x.Item1 != null && x.Item1.name == name && x.Item2 < x.Item1.stackSize);
+
+    if (i == -1 && usedSpace >= space)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
     }
   }
 

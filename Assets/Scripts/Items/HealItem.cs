@@ -10,4 +10,5 @@ public class HealItem : Item
     PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     playerController.ChangeHealth(1);
   }
+
 }

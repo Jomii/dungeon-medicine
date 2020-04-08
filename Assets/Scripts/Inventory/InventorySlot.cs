@@ -6,7 +6,7 @@ public class InventorySlot : MonoBehaviour
 {
   public Image icon;
   public TextMeshProUGUI stackText;
-  Item item;
+  public Item item;
 
   public void AddItem(Item newItem, int stackSize)
   {
