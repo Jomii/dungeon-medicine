@@ -9,20 +9,18 @@ public class GameState : MonoBehaviour
   public List<(Item, int)> inventoryItems = new List<(Item, int)>(6);
   public (Item, int) rangedItem = (null, 0);
   public int health = 5;
-  // public Inventory inventory;
   void Awake()
   {
-    if (instance != this && SceneManager.GetActiveScene().buildIndex == 2)
-    {
-      instance.inventoryItems = new List<(Item, int)>(6);
-      instance.health = 5;
-      rangedItem = (null, 0);
-    }
-
     if (instance == null)
     {
       DontDestroyOnLoad(gameObject);
       instance = this;
+    }
+    else if (instance != this && SceneManager.GetActiveScene().buildIndex == 2)
+    {
+      instance.inventoryItems = new List<(Item, int)>(6);
+      instance.health = 5;
+      rangedItem = (null, 0);
     }
     else if (instance != this)
     {
