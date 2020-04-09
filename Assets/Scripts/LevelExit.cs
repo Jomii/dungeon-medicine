@@ -4,6 +4,25 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
+  public static LevelExit instance { get; private set; }
+  public GameObject enemyPrefab;
+  public float spawnRate = 3.0f;
+  public Vector3 playerSpawnPos { get; set; }
+
+  void Awake()
+  {
+    instance = this;
+  }
+  public void SpawnEnemies()
+  {
+    InvokeRepeating("SpawnEnemy", 0.0f, spawnRate);
+  }
+
+  void SpawnEnemy()
+  {
+    Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+    Instantiate(enemyPrefab, playerSpawnPos, Quaternion.identity);
+  }
   void OnTriggerEnter2D(Collider2D other)
   {
     PlayerController controller = other.GetComponent<PlayerController>();

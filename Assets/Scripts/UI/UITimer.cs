@@ -31,6 +31,7 @@ public class UITimer : MonoBehaviour
     {
       CancelInvoke(); // Stop InvokeRepeating calls
       timerText.color = Color.red;
+      LevelExit.instance.SpawnEnemies();
     }
 
     timerText.text = timer.ToString();

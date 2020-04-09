@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    LevelExit.instance.playerSpawnPos = transform.position;
+
     rigidbody2d = GetComponent<Rigidbody2D>();
     animator = GetComponent<Animator>();
     weapon = transform.Find("Weapon");
