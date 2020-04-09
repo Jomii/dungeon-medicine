@@ -117,7 +117,10 @@ public class Inventory : MonoBehaviour
 
     if (selectedStack.Item1.useStack || selectedStack.Item2 - 1 < 1)
     {
-      selectedStack.Item1.Use();
+      if (!selectedStack.Item1.Use())
+      {
+        return;
+      }
 
       if (swapItem.Item1 == null)
       {
@@ -132,7 +135,10 @@ public class Inventory : MonoBehaviour
     else
     {
       Item item = selectedStack.Item1;
-      item.Use();
+      if (!item.Use())
+      {
+        return;
+      }
       items[selectedItemIndex] = (item, selectedStack.Item2 - 1);
     }
 

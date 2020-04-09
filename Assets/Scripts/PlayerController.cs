@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
   float invincibleTimer;
   bool isDashing;
   float dashTimer;
+  float attackTimer;
 
   AudioSource audioSource;
 
@@ -109,14 +110,21 @@ public class PlayerController : MonoBehaviour
       }
     }
 
-    if (Input.GetButtonDown("Fire1"))
+    if (attackTimer <= 0)
     {
-      Melee();
-    }
+      if (Input.GetButtonDown("Fire1"))
+      {
+        Melee();
+      }
 
-    if (Input.GetButtonDown("Fire2"))
+      if (Input.GetButtonDown("Fire2"))
+      {
+        Launch();
+      }
+    }
+    else
     {
-      Launch();
+      attackTimer -= Time.deltaTime;
     }
 
     if (!UICrafting.instance.enabled && Input.GetKeyDown(KeyCode.E))
@@ -172,6 +180,7 @@ public class PlayerController : MonoBehaviour
 
   void Melee()
   {
+    attackTimer = attackSpeed;
     weapon.GetComponent<Weapon>().Attack();
 
     weapon.LookAt(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector3.forward);
@@ -191,6 +200,8 @@ public class PlayerController : MonoBehaviour
     {
       return;
     }
+
+    attackTimer = attackSpeed;
 
     GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2d.position, Quaternion.identity);
 

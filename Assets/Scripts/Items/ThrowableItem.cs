@@ -8,11 +8,13 @@ public class ThrowableItem : Item
 {
   public GameObject projectilePrefab;
 
-  public override void Use()
+  public override bool Use()
   {
     Inventory.instance.SetRanged();
 
     PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     playerController.Equip(projectilePrefab);
+
+    return true;
   }
 }

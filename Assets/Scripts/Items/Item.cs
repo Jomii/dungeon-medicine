@@ -14,12 +14,14 @@ public class Item : ScriptableObject
   public bool useStack = false;
   public List<Item> ingredients;
 
-  public virtual void Use()
+  // Return true if something happened
+  public virtual bool Use()
   {
     // Use the item
     // Something might happen
 
     Debug.Log("Using " + name);
+    return false; // Default item doesn't do anything
   }
 
   public virtual void Craft()
