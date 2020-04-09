@@ -21,12 +21,14 @@ public class PlayerController : MonoBehaviour
   public float attackSpeed = 0.0f;
 
   public int health { get { return currentHealth; } }
+  float currentSpeed;
   int currentHealth;
   bool isInvincible;
   float invincibleTimer;
   bool isDashing;
   float dashTimer;
   float attackTimer;
+  float speedTimer;
 
   AudioSource audioSource;
 
@@ -50,6 +52,7 @@ public class PlayerController : MonoBehaviour
     weaponAnimator = weapon.GetComponent<Animator>();
 
     currentHealth = GameState.instance.health;
+    currentSpeed = moveSpeed;
     UIHealthBar.instance.SetValue(currentHealth / (float)maxHealth);
 
     audioSource = GetComponent<AudioSource>();
@@ -88,7 +91,7 @@ public class PlayerController : MonoBehaviour
     crosshairInWorldPos.z = -90;
     transform.LookAt(crosshairInWorldPos, Vector3.forward);
     Vector2 position = rigidbody2d.position;
-    position = position + move * moveSpeed * Time.deltaTime;
+    position = position + move * currentSpeed * Time.deltaTime;
     rigidbody2d.MovePosition(position);
 
     if (isInvincible)
@@ -110,6 +113,16 @@ public class PlayerController : MonoBehaviour
       {
         isDashing = false;
       }
+    }
+
+    // Speed potion timer and normalize currentSpeed
+    if (speedTimer >= 0)
+    {
+      speedTimer -= Time.deltaTime;
+    }
+    else if (!isDashing)
+    {
+      currentSpeed = moveSpeed;
     }
 
     if (attackTimer <= 0)
@@ -148,7 +161,7 @@ public class PlayerController : MonoBehaviour
       inventory.DropSelectedItem(rigidbody2d.position, aimDirection);
     }
 
-    if (!UICrafting.instance.enabled && !isDashing && Input.GetKeyDown(KeyCode.Space))
+    if (speedTimer <= 0 && !UICrafting.instance.enabled && !isDashing && Input.GetKeyDown(KeyCode.Space))
     {
       StartCoroutine(Dash());
     }
@@ -178,6 +191,13 @@ public class PlayerController : MonoBehaviour
     {
       Die();
     }
+  }
+
+  public void SetSpeed(float speed, float duration)
+  {
+
+    currentSpeed = speed;
+    speedTimer = duration;
   }
 
   void Melee()
@@ -234,12 +254,11 @@ public class PlayerController : MonoBehaviour
     PlaySound(dashSound);
 
     // Increase speed for the dashes duration
-    float previousSpeed = moveSpeed;
-    moveSpeed = dashSpeed;
+    currentSpeed = dashSpeed;
     yield return new WaitForSeconds(dashDuration);
 
     // Reset speed previous to dash
-    moveSpeed = previousSpeed;
+    currentSpeed = moveSpeed;
   }
 
   void Die()

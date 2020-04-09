@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
   Transform target;
   Vector2 directionToTarget;
   bool alive = true;
+  bool isBlind = false;
+  float blindTimer;
   float attackTimer = 0.0f;
   // Ranged behaviour
   int randomSpot;
@@ -62,6 +64,17 @@ public class EnemyController : MonoBehaviour
       {
         isInvincible = false;
       }
+    }
+
+    if (isBlind)
+    {
+      if (blindTimer <= 0)
+      {
+        isBlind = false;
+      }
+
+      blindTimer -= Time.deltaTime;
+      return;
     }
 
     if (!ranged)
@@ -137,6 +150,12 @@ public class EnemyController : MonoBehaviour
     {
       player.ChangeHealth(-1);
     }
+  }
+
+  public void Blind(float duration)
+  {
+    blindTimer = duration;
+    isBlind = true;
   }
 
   void Shoot()
