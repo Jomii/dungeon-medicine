@@ -81,7 +81,7 @@ public class EnemyController : MonoBehaviour
     float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
     transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
-    if (Vector2.Distance(position, target.position) > 1.0f)
+    if (Vector2.Distance(position, target.position) > 0.2f)
     {
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;

@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
     if (Input.GetKeyDown(KeyCode.F))
     {
-      inventory.DropSelectedItem(rigidbody2d.position);
+      inventory.DropSelectedItem(rigidbody2d.position, aimDirection);
     }
 
     if (!UICrafting.instance.enabled && !isDashing && Input.GetKeyDown(KeyCode.Space))
