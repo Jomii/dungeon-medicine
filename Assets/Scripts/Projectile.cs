@@ -60,7 +60,6 @@ public class Projectile : MonoBehaviour
 
   void OnCollisionEnter2D(Collision2D other)
   {
-    Debug.Log(other.collider.name);
     EnemyController e = other.collider.GetComponent<EnemyController>();
 
     if (e != null)
@@ -69,6 +68,15 @@ public class Projectile : MonoBehaviour
     }
 
     Destroy(gameObject);
+  }
+
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.name == "Tilemap" && isAOE)
+    {
+      SpawnAOE();
+      Destroy(gameObject);
+    }
   }
 
   void SpawnAOE()
