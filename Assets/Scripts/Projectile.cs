@@ -70,6 +70,15 @@ public class Projectile : MonoBehaviour
     Destroy(gameObject);
   }
 
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.name == "Tilemap" && isAOE)
+    {
+      SpawnAOE();
+      Destroy(gameObject);
+    }
+  }
+
   void SpawnAOE()
   {
     GameObject playerAOE = Instantiate(aoePrefab, transform.position, Quaternion.identity);

@@ -2221,7 +2221,7 @@ PrefabInstance:
         type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 1b1beae3320e697498772f9c35f11be6,
+      objectReference: {fileID: 11400000, guid: 11ca801427bec914ab38d62999eb0a83,
         type: 2}
     - target: {fileID: 8227279209999967663, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
@@ -3523,36 +3523,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3796576549764293659}
     m_Modifications:
+    - target: {fileID: 839089219152220048, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839089219152220048, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 76a2d74a2d771e54393784f427f2d6e9,
+        type: 3}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_text
+      value: Blinding potion (throwable)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1695978204734643330, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 4.4002075
       objectReference: {fileID: 0}
+    - target: {fileID: 2049608998409172473, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 512fb2f563f26324383cc4fe390b06e7,
+        type: 3}
+    - target: {fileID: 3024288663490730442, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6413188300352334822, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 20a656e26ab1d534988170d0382cfd39,
+        type: 2}
     - target: {fileID: 8227279209999967663, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3663,6 +3701,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICraftingSelect (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 9091780705131489417, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091780705131489417, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5513b627156f2ca459dbddc1133b3d4e,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e2977d0dc047db4bacd5901719f1eff, type: 3}
 --- !u!224 &4112989111111481323 stripped
@@ -3678,41 +3727,74 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3796576549764293659}
     m_Modifications:
+    - target: {fileID: 839089219152220048, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839089219152220048, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 76a2d74a2d771e54393784f427f2d6e9,
+        type: 3}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_text
+      value: Speed potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1241763493971490770, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1695978204734643330, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 4.4002075
       objectReference: {fileID: 0}
+    - target: {fileID: 2049608998409172473, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2a0950faf88bfee4eabda3f91b99868c,
+        type: 3}
     - target: {fileID: 3024288663490730442, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6413188300352334822, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 71732ae66fc390d4dac3e02899cd4bab,
+        type: 2}
     - target: {fileID: 8227279209999967663, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3823,6 +3905,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: UICraftingSelect (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9091780705131489417, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9091780705131489417, guid: 9e2977d0dc047db4bacd5901719f1eff,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e38fe8b27a67c1448a3bec38689f65c5,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e2977d0dc047db4bacd5901719f1eff, type: 3}
 --- !u!224 &3039658487720333646 stripped

@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
   Transform target;
   Vector2 directionToTarget;
   bool alive = true;
+  bool isBlind = false;
+  float blindTimer;
   float attackTimer = 0.0f;
   // Ranged behaviour
   int randomSpot;
@@ -64,6 +66,17 @@ public class EnemyController : MonoBehaviour
       }
     }
 
+    if (isBlind)
+    {
+      if (blindTimer <= 0)
+      {
+        isBlind = false;
+      }
+
+      blindTimer -= Time.deltaTime;
+      return;
+    }
+
     if (!ranged)
     {
       MeleeBehaviour();
@@ -81,7 +94,7 @@ public class EnemyController : MonoBehaviour
     float rotation = Mathf.Atan2(directionToTarget.y, directionToTarget.x) * Mathf.Rad2Deg;
     transform.eulerAngles = new Vector3(0, 0, rotation - 90);
 
-    if (Vector2.Distance(position, target.position) > 1.0f)
+    if (Vector2.Distance(position, target.position) > 0.2f)
     {
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;
@@ -137,6 +150,12 @@ public class EnemyController : MonoBehaviour
     {
       player.ChangeHealth(-1);
     }
+  }
+
+  public void Blind(float duration)
+  {
+    blindTimer = duration;
+    isBlind = true;
   }
 
   void Shoot()

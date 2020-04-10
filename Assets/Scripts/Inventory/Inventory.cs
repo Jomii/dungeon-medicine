@@ -117,7 +117,10 @@ public class Inventory : MonoBehaviour
 
     if (selectedStack.Item1.useStack || selectedStack.Item2 - 1 < 1)
     {
-      selectedStack.Item1.Use();
+      if (!selectedStack.Item1.Use())
+      {
+        return;
+      }
 
       if (swapItem.Item1 == null)
       {
@@ -132,7 +135,10 @@ public class Inventory : MonoBehaviour
     else
     {
       Item item = selectedStack.Item1;
-      item.Use();
+      if (!item.Use())
+      {
+        return;
+      }
       items[selectedItemIndex] = (item, selectedStack.Item2 - 1);
     }
 
@@ -166,7 +172,7 @@ public class Inventory : MonoBehaviour
     }
   }
 
-  public void DropSelectedItem(Vector2 playerPosition)
+  public void DropSelectedItem(Vector2 playerPosition, Vector2 lookDir)
   {
     (Item, int) itemStack = items[selectedItemIndex];
     if (itemStack.Item1 == null)
@@ -174,7 +180,7 @@ public class Inventory : MonoBehaviour
       return;
     }
 
-    GameObject collectibleObject = Instantiate(itemStack.Item1.prefab, playerPosition + Vector2.up, Quaternion.identity);
+    GameObject collectibleObject = Instantiate(itemStack.Item1.prefab, playerPosition + lookDir, Quaternion.identity);
     Collectible collectible = collectibleObject.GetComponent<Collectible>();
     collectible.SetStackSize(itemStack.Item2);
 

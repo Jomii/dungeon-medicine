@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "New Throwable", menuName = "Inventory/Throwable")]
-public class ThrowableItem : Item
+[CreateAssetMenu(fileName = "New SpeedItem", menuName = "Inventory/SpeedItem")]
+public class SpeedPotion : Item
 {
-  public GameObject projectilePrefab;
-
+  public float speed = 10.0f;
+  public float duration = 4.0f;
   public override bool Use()
   {
-    Inventory.instance.SetRanged();
-
     PlayerController playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-    playerController.Equip(projectilePrefab);
+    playerController.SetSpeed(speed, duration);
 
     return true;
   }
