@@ -247,7 +247,7 @@ MonoBehaviour:
   timeInvincible: 2
   projectilePrefab: {fileID: 0}
   hitClip: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
-  throwSound: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
+  throwSound: {fileID: 8300000, guid: 66d516d86bf5e3f45b0d1fd7b2533c5f, type: 3}
   meleeSound: {fileID: 8300000, guid: 29d1728ab9e578144a46f356cb9a7ce6, type: 3}
   dashSound: {fileID: 8300000, guid: 63228a7cfd708c947a912c40cb3a3c69, type: 3}
   attackRange: 2
