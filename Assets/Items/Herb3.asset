@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9dd09efd2ec11a4aa84cadd76e433cc, type: 3}
   m_Name: Herb3
   m_EditorClassIdentifier: 
-  name: New Item
+  name: Herb3
   prefab: {fileID: 0}
-  icon: {fileID: 0}
-  stackSize: 1
+  icon: {fileID: 21300000, guid: e38fe8b27a67c1448a3bec38689f65c5, type: 3}
+  stackSize: 5
   useStack: 0
   ingredients: []
