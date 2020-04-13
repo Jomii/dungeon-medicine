@@ -8,7 +8,7 @@ public class LevelExit : MonoBehaviour
   public GameObject enemyPrefab;
   public float spawnRate = 3.0f;
   public Vector3 playerSpawnPos { get; set; }
-
+  public bool isLastLevel;
   void Awake()
   {
     instance = this;
@@ -38,10 +38,23 @@ public class LevelExit : MonoBehaviour
   {
     AsyncOperation asyncLoad;
 
-    if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
+    if (isLastLevel)
     {
-      // After last scene, return to the first scene
-      asyncLoad = SceneManager.LoadSceneAsync(0);
+      (Item, int) cure = Inventory.instance.items.Find(x => x.Item1 != null && x.Item1.name == "The Cure");
+
+      if (GameState.instance.playerUsedCure)
+      {
+        asyncLoad = SceneManager.LoadSceneAsync("GreedyEnding");
+      }
+      else if (cure.Item1 != null)
+      {
+        asyncLoad = SceneManager.LoadSceneAsync("GoodEnding");
+      }
+      else
+      {
+        asyncLoad = SceneManager.LoadSceneAsync("ClumsyEnding");
+      }
+
     }
     else
     {

@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4e6ea11d5ac7b4795615f5deb1944a, type: 3}
   m_Name: The Cure
   m_EditorClassIdentifier: 
-  name: New Item
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
-  iconColor: {r: 0, g: 0, b: 0, a: 0}
+  name: The Cure
+  prefab: {fileID: 7953309626462428987, guid: 381e03362f8a5e2479e2a2eebf10596a, type: 3}
+  icon: {fileID: 21300000, guid: 512fb2f563f26324383cc4fe390b06e7, type: 3}
+  iconColor: {r: 0.8666667, g: 0, b: 0.047058824, a: 1}
   stackSize: 1
   useStack: 0
-  ingredients: []
+  ingredients:
+  - {fileID: 11400000, guid: a9c9b53d66cdcb34685fa2ad08a6552c, type: 2}
+  - {fileID: 11400000, guid: a9c9b53d66cdcb34685fa2ad08a6552c, type: 2}
+  - {fileID: 11400000, guid: a9c9b53d66cdcb34685fa2ad08a6552c, type: 2}
+  - {fileID: 11400000, guid: a9c9b53d66cdcb34685fa2ad08a6552c, type: 2}
+  - {fileID: 11400000, guid: a9c9b53d66cdcb34685fa2ad08a6552c, type: 2}

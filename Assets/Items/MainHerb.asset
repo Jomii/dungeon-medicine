@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9dd09efd2ec11a4aa84cadd76e433cc, type: 3}
-  m_Name: New Item
+  m_Name: MainHerb
   m_EditorClassIdentifier: 
-  name: New Item
-  prefab: {fileID: 0}
-  icon: {fileID: 0}
-  stackSize: 1
+  name: MainHerb
+  prefab: {fileID: 1021738697336400784, guid: 0c973cc84a4bfe74997c13fe030a7365, type: 3}
+  icon: {fileID: 21300000, guid: 00970223ab0b7ae4c82e221e41f9f91a, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
+  stackSize: 25
   useStack: 0
   ingredients: []

@@ -8,6 +8,7 @@ public class TheCure : Item
   public override bool Use()
   {
     Debug.Log("Player used the cure");
+    GameState.instance.playerUsedCure = true;
 
     return true;
   }
