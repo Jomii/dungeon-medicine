@@ -130,6 +130,7 @@ public class Inventory : MonoBehaviour
       else
       {
         items[selectedItemIndex] = swapItem;
+        swapItem = (null, 0);
       }
     }
     else

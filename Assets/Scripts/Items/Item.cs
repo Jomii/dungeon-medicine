@@ -8,6 +8,7 @@ public class Item : ScriptableObject
   new public string name = "New Item";
   public GameObject prefab;
   public Sprite icon = null;
+  public Color iconColor;
   [Tooltip("Maximum amount a player can carry")]
   public int stackSize = 1;
   [Tooltip("When used is the whole stack consumed?")]

@@ -14,6 +14,14 @@ public class InventorySlot : MonoBehaviour
 
     icon.enabled = true;
     icon.sprite = item.icon;
+    if (item.iconColor != Color.clear)
+    {
+      icon.color = item.iconColor;
+    }
+    else
+    {
+      icon.color = Color.white;
+    }
 
     if (stackSize > 1)
     {
