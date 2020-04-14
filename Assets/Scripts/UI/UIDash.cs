@@ -19,7 +19,6 @@ public class UIDash : MonoBehaviour
   public void SetCooldown(float seconds)
   {
     float remaining = Mathf.Round(seconds);
-    Debug.Log("remaining cd_ " + seconds);
     mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, originalSize * seconds);
   }
 }
