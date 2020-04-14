@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     if (isDashing)
     {
-      UIDash.instance.SetCooldown(dashTimer);
+      UIDash.instance.SetCooldown(1.0f - dashTimer / dashCooldown);
       dashTimer -= Time.deltaTime;
 
       if (dashTimer < 0)
