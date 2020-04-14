@@ -8,7 +8,7 @@ public class UICrafting : MonoBehaviour
 {
   public static UICrafting instance { get; private set; }
   public Transform itemsParent;
-  public Color selectedItemColor = new Color(1f, 0.9480699f, 0.8820755f);
+  public Color selectedItemColor = Color.white;
   public TextMeshProUGUI craftText;
   public bool finalItemEnabled { get; set; }
   Inventory inventory;

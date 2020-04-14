@@ -1649,7 +1649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 8845622502749931766}
   rangedParent: {fileID: 1390172207441246598}
-  selectedItemColor: {r: 1, g: 0.9480699, b: 0.8820755, a: 1}
+  selectedItemColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &7976773933229477737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2631,12 +2631,12 @@ PrefabInstance:
     - target: {fileID: 377048017529449508, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.96056604
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 377048017529449508, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.9103774
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 377048017529449508, guid: 9e2977d0dc047db4bacd5901719f1eff,
         type: 3}
