@@ -203,6 +203,7 @@ public class EnemyController : MonoBehaviour
     alive = false;
     rigidbody2d.simulated = false;
     GetComponent<SpriteRenderer>().sprite = deathSprite;
+    animator.enabled = false;
     // animator.SetTrigger("Fixed");
     // smokeEffect.Stop();
   }
