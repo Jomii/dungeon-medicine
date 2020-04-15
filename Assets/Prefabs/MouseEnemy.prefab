@@ -153,6 +153,7 @@ MonoBehaviour:
   attackTime: 1
   ranged: 0
   projectilePrefab: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: bf7be1b12a677d14d8c13129d577970b, type: 3}
   moveSpots: []
   moveWaitTime: 0
   projectileSpeed: 400

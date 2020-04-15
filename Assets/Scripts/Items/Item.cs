@@ -13,6 +13,7 @@ public class Item : ScriptableObject
   public int stackSize = 1;
   [Tooltip("When used is the whole stack consumed?")]
   public bool useStack = false;
+  public AudioClip craftSound;
   public List<Item> ingredients;
 
   // Return true if something happened
@@ -28,6 +29,10 @@ public class Item : ScriptableObject
   public virtual void Craft()
   {
     Debug.Log("Crafting " + name);
+    if (craftSound)
+    {
+      GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().PlaySound(craftSound);
+    }
 
     foreach (var item in ingredients)
     {

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7415584431048498339}
   - component: {fileID: 2296467252821025468}
   m_Layer: 12
-  m_Name: Enemy1
+  m_Name: Enemy Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   attackTime: 1
   ranged: 0
   projectilePrefab: {fileID: 0}
+  hitClip: {fileID: 8300000, guid: 190d20e97c2fe43468e260e10b4421c8, type: 3}
   moveSpots: []
   moveWaitTime: 0
   projectileSpeed: 400

@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
   // Ranged behaviour
   public bool ranged = false;
   public GameObject projectilePrefab;
+  public AudioClip hitClip;
   public Transform[] moveSpots;
   public float moveWaitTime;
   public int projectileSpeed = 400;
@@ -21,6 +22,7 @@ public class EnemyController : MonoBehaviour
   int currentHealth;
   bool isInvincible;
   float invincibleTimer;
+  AudioSource audioSource;
   Rigidbody2D rigidbody2d;
   Transform target;
   Vector2 directionToTarget;
@@ -41,6 +43,8 @@ public class EnemyController : MonoBehaviour
     animator = GetComponent<Animator>();
 
     currentHealth = maxHealth;
+
+    audioSource = GetComponent<AudioSource>();
 
     if (ranged)
     {
@@ -189,6 +193,7 @@ public class EnemyController : MonoBehaviour
 
       isInvincible = true;
       invincibleTimer = timeInvincible;
+      PlaySound(hitClip);
     }
 
     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -197,6 +202,11 @@ public class EnemyController : MonoBehaviour
     {
       Die();
     }
+  }
+
+  public void PlaySound(AudioClip clip)
+  {
+    audioSource.PlayOneShot(clip);
   }
   public void Die()
   {
