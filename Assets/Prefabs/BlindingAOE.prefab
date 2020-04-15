@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.5
+  blindDuration: 2
 --- !u!58 &6502237159209892085
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +124,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: fe67adc097bfd384db4a73e7b6ad662c,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: b7ae630eb8cfb9a4988689717f18a2eb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a729bc6d597c30a4593912c0061e5b5c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
