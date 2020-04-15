@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
   public int health { get { return currentHealth; } }
   public float timeInvincible = 0.5f;
   public float speed = 3.0f;
+  public Sprite deathSprite;
   public ParticleSystem smokeEffect;
   public float attackTime = 1.0f;
   // Ranged behaviour
@@ -201,6 +202,7 @@ public class EnemyController : MonoBehaviour
   {
     alive = false;
     rigidbody2d.simulated = false;
+    GetComponent<SpriteRenderer>().sprite = deathSprite;
     // animator.SetTrigger("Fixed");
     // smokeEffect.Stop();
   }
