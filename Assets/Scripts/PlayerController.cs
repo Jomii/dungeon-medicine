@@ -84,9 +84,9 @@ public class PlayerController : MonoBehaviour
       lookDirection.Normalize();
     }
 
-    // animator.SetFloat("Look X", lookDirection.x);
-    // animator.SetFloat("Look Y", lookDirection.y);
-    // animator.SetFloat("Speed", move.magnitude);
+    animator.SetFloat("Look X", lookDirection.x);
+    animator.SetFloat("Look Y", lookDirection.y);
+    animator.SetFloat("Speed", move.magnitude);
 
     crosshairInWorldPos.z = -90;
     transform.LookAt(crosshairInWorldPos, Vector3.forward);
