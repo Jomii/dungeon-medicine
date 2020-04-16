@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
   public AudioClip throwSound;
   public AudioClip meleeSound;
   public AudioClip dashSound;
+  public AudioClip deathSound;
   public float attackRange = 0.19f;
   public float attackSpeed = 0.0f;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
   float dashTimer;
   float attackTimer;
   float speedTimer;
+  bool isDead;
 
   AudioSource audioSource;
 
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (PauseMenu.GameIsPaused)
+    if (PauseMenu.GameIsPaused || isDead)
     {
       return;
     }
@@ -140,20 +142,6 @@ public class PlayerController : MonoBehaviour
     else
     {
       attackTimer -= Time.deltaTime;
-    }
-
-    if (!UICrafting.instance.enabled && Input.GetKeyDown(KeyCode.E))
-    {
-      RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, aimDirection, 2f, LayerMask.GetMask("NPC"));
-      if (hit.collider != null)
-      {
-        NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
-
-        if (character != null)
-        {
-          character.DisplayDialog();
-        }
-      }
     }
 
     if (Input.GetKeyDown(KeyCode.F))
@@ -263,6 +251,17 @@ public class PlayerController : MonoBehaviour
 
   void Die()
   {
+    isDead = true;
+    rigidbody2d.simulated = false;
+    StartCoroutine(ShowDeathScreen());
+  }
+
+  IEnumerator ShowDeathScreen()
+  {
+    UIDeathMask.instance.ShowDeathScreen();
+    PlaySound(deathSound);
+
+    yield return new WaitForSeconds(5);
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
   }
 
