@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
   public AudioClip throwSound;
   public AudioClip meleeSound;
   public AudioClip dashSound;
+  public AudioClip deathSound;
   public float attackRange = 0.19f;
   public float attackSpeed = 0.0f;
 
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
   float dashTimer;
   float attackTimer;
   float speedTimer;
+  bool isDead;
 
   AudioSource audioSource;
 
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (PauseMenu.GameIsPaused)
+    if (PauseMenu.GameIsPaused || isDead)
     {
       return;
     }
@@ -249,6 +251,17 @@ public class PlayerController : MonoBehaviour
 
   void Die()
   {
+    isDead = true;
+    rigidbody2d.simulated = false;
+    StartCoroutine(ShowDeathScreen());
+  }
+
+  IEnumerator ShowDeathScreen()
+  {
+    UIDeathMask.instance.ShowDeathScreen();
+    PlaySound(deathSound);
+
+    yield return new WaitForSeconds(5);
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
   }
 
