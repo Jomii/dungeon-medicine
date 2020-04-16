@@ -104,9 +104,6 @@ public class EnemyController : MonoBehaviour
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
-
-      animator.SetFloat("Move X", directionToTarget.x);
-      animator.SetFloat("Move Y", directionToTarget.y);
     }
   }
 
@@ -127,9 +124,6 @@ public class EnemyController : MonoBehaviour
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
-
-      animator.SetFloat("Move X", directionToTarget.x);
-      animator.SetFloat("Move Y", directionToTarget.y);
     }
 
     if (!Mathf.Approximately(directionToTarget.x, 0.2f) || !Mathf.Approximately(directionToTarget.y, 0.2f))
