@@ -1310,6 +1310,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 358.646
       objectReference: {fileID: 0}
+    - target: {fileID: 8841292051426650171, guid: 5ec2deeb75627d2439ac25364eb3b2c4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 8841292051426650171, guid: 5ec2deeb75627d2439ac25364eb3b2c4,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.6666667
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec2deeb75627d2439ac25364eb3b2c4, type: 3}
 --- !u!1 &443195025
@@ -10547,7 +10557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textBox: {fileID: 1807871086}
-  theText: {fileID: 2031944533}
+  Text: {fileID: 2031944533}
   textFile: {fileID: 4900000, guid: b7d9f4b03ff084d4692a26c8148a2ed2, type: 3}
   textLines:
   - 
@@ -10561,8 +10571,9 @@ MonoBehaviour:
   - 
   - 
   currentLine: 0
-  endAtLine: 10
+  endAtLine: 0
   player: {fileID: 0}
+  isActive: 1
 --- !u!4 &1209853098
 Transform:
   m_ObjectHideFlags: 0
@@ -13507,7 +13518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124728762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.109764, y: -0.009998569, z: -10}
+  m_LocalPosition: {x: -4.8066387, y: -0.009998569, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2131389032}
