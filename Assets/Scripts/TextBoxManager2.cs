@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TextBoxManager2 : MonoBehaviour
 {
   public GameObject textBox;
 
-  public Text Text;
+  // public Text Text;
+  public GameObject textObject;
 
   public TextAsset textFile;
   public string[] textLines;
@@ -18,11 +20,13 @@ public class TextBoxManager2 : MonoBehaviour
   public PlayerController player;
 
   public bool isActive;
+  TextMeshProUGUI Text;
 
   // Use this for initialization
   void Start()
   {
     player = FindObjectOfType<PlayerController>();
+    Text = textObject.GetComponent<TextMeshProUGUI>();
 
     if (textFile != null)
     {
@@ -36,9 +40,9 @@ public class TextBoxManager2 : MonoBehaviour
 
     }
 
-    if(isActive)
+    if (isActive)
     {
-      EnableTextBox();
+      // EnableTextBox();
     }
     else
     {
@@ -50,17 +54,19 @@ public class TextBoxManager2 : MonoBehaviour
   void Update()
   {
 
-    if(!isActive)
+    if (!isActive)
     {
       return;
     }
 
     Text.text = textLines[currentLine];
 
-    if (Input.GetKeyDown(KeyCode.Return))
+    if (Input.GetKeyDown(KeyCode.Return) && textBox.activeSelf)
     {
-      currentLine += 1;
-  
+      if (currentLine < textLines.Length - 1)
+      {
+        currentLine += 1;
+      }
     }
 
     if (currentLine > endAtLine)
@@ -81,7 +87,7 @@ public class TextBoxManager2 : MonoBehaviour
 
   public void ReloadScript(TextAsset Text)
   {
-    if(Text != null)
+    if (Text != null)
     {
       textLines = new string[1];
       textLines = (Text.text.Split('\n'));
