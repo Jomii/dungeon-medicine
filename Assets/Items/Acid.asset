@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Acid
   prefab: {fileID: 8977699308175386006, guid: f1a9f9dc17615eb45801084b0ed1ac76, type: 3}
   icon: {fileID: 21300000, guid: 12953eb7bad54624fa71355b45188f69, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
   stackSize: 2
   useStack: 1
+  craftSound: {fileID: 8300000, guid: d25ab704d4633cc49a082f58c1aba733, type: 3}
   ingredients:
   - {fileID: 11400000, guid: bd178e1ddf4323e46a7b674bd3f350d3, type: 2}
   - {fileID: 11400000, guid: e2674ddc4b3fd264796f20a06bc53aa5, type: 2}

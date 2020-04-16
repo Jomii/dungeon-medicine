@@ -15,8 +15,10 @@ MonoBehaviour:
   name: Blinding Potion
   prefab: {fileID: 120319237272282448, guid: 6da76f96d5c838740b1597f964394e0d, type: 3}
   icon: {fileID: 21300000, guid: 512fb2f563f26324383cc4fe390b06e7, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
   stackSize: 2
   useStack: 0
+  craftSound: {fileID: 8300000, guid: d25ab704d4633cc49a082f58c1aba733, type: 3}
   ingredients:
   - {fileID: 11400000, guid: e2674ddc4b3fd264796f20a06bc53aa5, type: 2}
   - {fileID: 11400000, guid: 8b2e184be3ac3c84cbac8484dc3d634e, type: 2}
