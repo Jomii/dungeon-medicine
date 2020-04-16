@@ -668,9 +668,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\"I've seen of enough of people who die for an idea. I don't believe in
-    heroism; I know it's easy and I've learned it can be murderous. What interests
-    me is living and dying for what one loves.\"\n\n\t- Camus, \"The Plague\""
+  m_text: "\"Who heals the Healer?\"\n\n    - A tribe riddle"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
   m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
@@ -699,10 +697,10 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
+  m_fontSize: 57.9
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -716,7 +714,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 195
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -737,15 +735,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 20.825788, y: 85.05917, z: 157.04568, w: 113.82061}
+  m_margin: {x: -19.707327, y: 104.521324, z: 157.04568, w: 156.2835}
   m_textInfo:
     textComponent: {fileID: 891794349}
-    characterCount: 217
+    characterCount: 45
     spriteCount: 0
-    spaceCount: 43
-    wordCount: 42
+    spaceCount: 12
+    wordCount: 8
     linkCount: 0
-    lineCount: 8
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
