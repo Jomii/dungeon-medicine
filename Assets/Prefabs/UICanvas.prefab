@@ -1570,7 +1570,7 @@ GameObject:
   - component: {fileID: 2419985977137916329}
   - component: {fileID: 8995630935969479718}
   - component: {fileID: 7620919811771410561}
-  - component: {fileID: 6075255482603002882}
+  - component: {fileID: 9123430732801509873}
   m_Layer: 5
   m_Name: DeathMask
   m_TagString: Untagged
@@ -1633,7 +1633,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &6075255482603002882
+--- !u!95 &9123430732801509873
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -1643,7 +1643,7 @@ Animator:
   m_GameObject: {fileID: 7738565877563679330}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: aa7e02a25dd388048a12dd807ef86880, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0bf799fb1808bf246a3888f6f68fdb48, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
