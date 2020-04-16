@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -9.17, y: -1.31}
+  m_AnchoredPosition: {x: -8.39, y: -1.31}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25773345
@@ -906,7 +906,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 70.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -952,7 +952,7 @@ MonoBehaviour:
     spaceCount: 1
     wordCount: 2
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -9980,7 +9980,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -10.76, y: -0.09}
+  m_AnchoredPosition: {x: -10.97, y: -0.05}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877994632
@@ -11374,7 +11374,7 @@ PrefabInstance:
     - target: {fileID: 7825615871560408707, guid: b03b7da1a4ab5774faa3e6782679bbf3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8480430462671412705, guid: b03b7da1a4ab5774faa3e6782679bbf3,
         type: 3}
@@ -13207,7 +13207,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Use space to dash
+  m_text: 'Use space to dash. Dashing is useful when dodging or escaping enemies
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4de1090afcd37245bdd17da8c1e0542, type: 2}
   m_sharedMaterial: {fileID: 7897911280416305554, guid: c4de1090afcd37245bdd17da8c1e0542,
@@ -13277,12 +13279,12 @@ MonoBehaviour:
   m_margin: {x: -121.73694, y: 0, z: -123.84787, w: 0}
   m_textInfo:
     textComponent: {fileID: 1923448196}
-    characterCount: 17
+    characterCount: 70
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 12
+    wordCount: 12
     linkCount: 0
-    lineCount: 1
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -13680,7 +13682,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2124728762}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2271347, y: -0.009998569, z: -10}
+  m_LocalPosition: {x: -6.2580853, y: -0.009998569, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2131389032}
