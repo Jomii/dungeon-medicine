@@ -32,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0.000002006985, y: -0.027517982, z: -0.015793685, w: -0.9994965}
   m_LocalPosition: {x: 18.47, y: -30.44, z: -1.79}
   m_LocalScale: {x: 0.49067345, y: 0.45711198, z: 0.44054735}
-  m_Children:
-  - {fileID: 6416899735816991718}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.05, y: 3.153, z: 361.809}
@@ -149,7 +148,7 @@ MonoBehaviour:
   timeInvincible: 0.5
   speed: 4
   deathSprite: {fileID: 0}
-  smokeEffect: {fileID: 6416899735816991719}
+  smokeEffect: {fileID: 0}
   attackTime: 1
   ranged: 0
   projectilePrefab: {fileID: 0}
@@ -273,89 +272,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &7129384671221695602
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2244364318077111971}
-    m_Modifications:
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483991, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_Name
-      value: SmokeEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483991, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0e2c7a918bdf66841abafb5a2a03ee79, type: 3}
---- !u!4 &6416899735816991718 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-    type: 3}
-  m_PrefabInstance: {fileID: 7129384671221695602}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &6416899735816991719 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4322824359860483989, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-    type: 3}
-  m_PrefabInstance: {fileID: 7129384671221695602}
-  m_PrefabAsset: {fileID: 0}
