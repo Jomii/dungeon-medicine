@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class IntroTransition : MonoBehaviour
 {
   public float displayContinue = 10.0f;
+  public bool toMainMenu;
   public GameObject continueText;
   // Start is called before the first frame update
   void Start()
@@ -29,7 +30,14 @@ public class IntroTransition : MonoBehaviour
 
       if (Input.GetButtonDown("Jump"))
       {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (toMainMenu)
+        {
+          SceneManager.LoadScene(0);
+        }
+        else
+        {
+          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
       }
     }
   }

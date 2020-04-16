@@ -6,6 +6,7 @@ public class CraftingTable : MonoBehaviour
 {
 
   public GameObject dialogBox;
+  public bool isLastLevel;
   bool playerInRange = false;
 
   // Start is called before the first frame update
@@ -18,6 +19,11 @@ public class CraftingTable : MonoBehaviour
   {
     if (playerInRange && Input.GetKeyDown(KeyCode.E))
     {
+      if (isLastLevel)
+      {
+        UICrafting.instance.finalItemEnabled = true;
+      }
+
       UICrafting.instance.ToggleVisible();
     }
   }

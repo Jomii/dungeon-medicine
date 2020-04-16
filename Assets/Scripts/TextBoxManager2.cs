@@ -7,7 +7,7 @@ public class TextBoxManager2 : MonoBehaviour
 {
   public GameObject textBox;
 
-  public Text theText;
+  public Text Text;
 
   public TextAsset textFile;
   public string[] textLines;
@@ -16,6 +16,8 @@ public class TextBoxManager2 : MonoBehaviour
   public int endAtLine;
 
   public PlayerController player;
+
+  public bool isActive;
 
   // Use this for initialization
   void Start()
@@ -34,21 +36,55 @@ public class TextBoxManager2 : MonoBehaviour
 
     }
 
+    if(isActive)
+    {
+      EnableTextBox();
+    }
+    else
+    {
+      DisableTextBox();
+    }
+
   }
 
   void Update()
   {
 
-    theText.text = textLines[currentLine];
+    if(!isActive)
+    {
+      return;
+    }
+
+    Text.text = textLines[currentLine];
 
     if (Input.GetKeyDown(KeyCode.Return))
     {
       currentLine += 1;
+  
     }
 
     if (currentLine > endAtLine)
     {
-      textBox.SetActive(false);
+      DisableTextBox();
+    }
+  }
+
+  public void EnableTextBox()
+  {
+    textBox.SetActive(true);
+  }
+
+  public void DisableTextBox()
+  {
+    textBox.SetActive(false);
+  }
+
+  public void ReloadScript(TextAsset Text)
+  {
+    if(Text != null)
+    {
+      textLines = new string[1];
+      textLines = (Text.text.Split('\n'));
     }
   }
 }

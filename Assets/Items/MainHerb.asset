@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9dd09efd2ec11a4aa84cadd76e433cc, type: 3}
+  m_Name: MainHerb
+  m_EditorClassIdentifier: 
+  name: MainHerb
+  prefab: {fileID: 1021738697336400784, guid: 0c973cc84a4bfe74997c13fe030a7365, type: 3}
+  icon: {fileID: 21300000, guid: 00970223ab0b7ae4c82e221e41f9f91a, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 0}
+  stackSize: 25
+  useStack: 0
+  ingredients: []

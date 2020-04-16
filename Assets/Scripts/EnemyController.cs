@@ -8,11 +8,13 @@ public class EnemyController : MonoBehaviour
   public int health { get { return currentHealth; } }
   public float timeInvincible = 0.5f;
   public float speed = 3.0f;
+  public Sprite deathSprite;
   public ParticleSystem smokeEffect;
   public float attackTime = 1.0f;
   // Ranged behaviour
   public bool ranged = false;
   public GameObject projectilePrefab;
+  public AudioClip hitClip;
   public Transform[] moveSpots;
   public float moveWaitTime;
   public int projectileSpeed = 400;
@@ -20,6 +22,7 @@ public class EnemyController : MonoBehaviour
   int currentHealth;
   bool isInvincible;
   float invincibleTimer;
+  AudioSource audioSource;
   Rigidbody2D rigidbody2d;
   Transform target;
   Vector2 directionToTarget;
@@ -40,6 +43,8 @@ public class EnemyController : MonoBehaviour
     animator = GetComponent<Animator>();
 
     currentHealth = maxHealth;
+
+    audioSource = GetComponent<AudioSource>();
 
     if (ranged)
     {
@@ -99,9 +104,6 @@ public class EnemyController : MonoBehaviour
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
-
-      animator.SetFloat("Move X", directionToTarget.x);
-      animator.SetFloat("Move Y", directionToTarget.y);
     }
   }
 
@@ -122,9 +124,6 @@ public class EnemyController : MonoBehaviour
       directionToTarget.Normalize();
       position = position + directionToTarget * speed * Time.deltaTime;
       rigidbody2d.MovePosition(position);
-
-      animator.SetFloat("Move X", directionToTarget.x);
-      animator.SetFloat("Move Y", directionToTarget.y);
     }
 
     if (!Mathf.Approximately(directionToTarget.x, 0.2f) || !Mathf.Approximately(directionToTarget.y, 0.2f))
@@ -188,6 +187,7 @@ public class EnemyController : MonoBehaviour
 
       isInvincible = true;
       invincibleTimer = timeInvincible;
+      PlaySound(hitClip);
     }
 
     currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -197,10 +197,17 @@ public class EnemyController : MonoBehaviour
       Die();
     }
   }
+
+  public void PlaySound(AudioClip clip)
+  {
+    audioSource.PlayOneShot(clip);
+  }
   public void Die()
   {
     alive = false;
     rigidbody2d.simulated = false;
+    GetComponent<SpriteRenderer>().sprite = deathSprite;
+    animator.enabled = false;
     // animator.SetTrigger("Fixed");
     // smokeEffect.Stop();
   }

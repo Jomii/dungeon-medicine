@@ -84,9 +84,9 @@ public class PlayerController : MonoBehaviour
       lookDirection.Normalize();
     }
 
-    // animator.SetFloat("Look X", lookDirection.x);
-    // animator.SetFloat("Look Y", lookDirection.y);
-    // animator.SetFloat("Speed", move.magnitude);
+    animator.SetFloat("Look X", lookDirection.x);
+    animator.SetFloat("Look Y", lookDirection.y);
+    animator.SetFloat("Speed", move.magnitude);
 
     crosshairInWorldPos.z = -90;
     transform.LookAt(crosshairInWorldPos, Vector3.forward);
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
     if (isDashing)
     {
-      UIDash.instance.SetCooldown(dashTimer);
+      UIDash.instance.SetCooldown(1.0f - dashTimer / dashCooldown);
       dashTimer -= Time.deltaTime;
 
       if (dashTimer < 0)

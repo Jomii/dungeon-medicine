@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 7489169457235581793}
   - component: {fileID: 3151640152493332220}
   - component: {fileID: 3166007657699212497}
-  - component: {fileID: 4091421315223352723}
   - component: {fileID: 2727579354042768303}
   - component: {fileID: 7586564881251376653}
   - component: {fileID: 1188711281601273874}
+  - component: {fileID: 3690879851244736122}
   m_Layer: 12
-  m_Name: Enemy2
+  m_Name: Enemy Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.3238535, y: -4.1352134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2433670900359128612}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -85,7 +84,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &3166007657699212497
 Rigidbody2D:
   serializedVersion: 4
@@ -107,32 +106,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &4091421315223352723
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4125197833236904498}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.00088858604, y: 0.005550742}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6666667, y: 1.3333334}
-    newSize: {x: 2.56, y: 2.56}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.4363408, y: 1.3238838}
-  m_EdgeRadius: 0
 --- !u!114 &2727579354042768303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,14 +118,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7665febd1bba6794498a147d1220a78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   timeInvincible: 0.5
   speed: 4
-  smokeEffect: {fileID: 2433670900359128613}
+  deathSprite: {fileID: 21300000, guid: a935430634050464ea1158c3273e1173, type: 3}
+  smokeEffect: {fileID: 0}
   attackTime: 1
   ranged: 1
   projectilePrefab: {fileID: 6390154021860385359, guid: 205d35db87aee6046a4b57806db240fe,
     type: 3}
+  hitClip: {fileID: 8300000, guid: 190d20e97c2fe43468e260e10b4421c8, type: 3}
   moveSpots: []
   moveWaitTime: 0
   projectileSpeed: 400
@@ -166,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 4125197833236904498}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3041977ff8e9125468afcac82bba3c84, type: 2}
+  m_Controller: {fileID: 9100000, guid: 865e7ae4defdbe148904054e4807785d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -272,89 +247,62 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1001 &1890354127410549168
-PrefabInstance:
+--- !u!60 &3690879851244736122
+PolygonCollider2D:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7489169457235581793}
-    m_Modifications:
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483991, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_Name
-      value: SmokeEffect
-      objectReference: {fileID: 0}
-    - target: {fileID: 4322824359860483991, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-        type: 3}
-      propertyPath: m_Layer
-      value: 12
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0e2c7a918bdf66841abafb5a2a03ee79, type: 3}
---- !u!4 &2433670900359128612 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4322824359860483988, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-    type: 3}
-  m_PrefabInstance: {fileID: 1890354127410549168}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
---- !u!198 &2433670900359128613 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4322824359860483989, guid: 0e2c7a918bdf66841abafb5a2a03ee79,
-    type: 3}
-  m_PrefabInstance: {fileID: 1890354127410549168}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4125197833236904498}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.6666667, y: 1.3333334}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.07, y: -0.33}
+      - {x: 0.07, y: 0.19}
+      - {x: 0.08, y: 0.19}
+      - {x: 0.13000001, y: 0.20666668}
+      - {x: 0.19333334, y: 0.27666667}
+      - {x: 0.19333334, y: 0.37666667}
+      - {x: 0.14, y: 0.44333336}
+      - {x: 0.120000005, y: 0.49333334}
+      - {x: 0.09, y: 0.54}
+      - {x: 0.07666667, y: 0.60333335}
+      - {x: 0.060000002, y: 0.64}
+      - {x: 0.026666667, y: 0.6666667}
+      - {x: -0.023333333, y: 0.6666667}
+      - {x: -0.053333335, y: 0.64}
+      - {x: -0.07, y: 0.61333334}
+      - {x: -0.07666667, y: 0.5566667}
+      - {x: -0.10666667, y: 0.5133333}
+      - {x: -0.120000005, y: 0.46666667}
+      - {x: -0.18, y: 0.39333335}
+      - {x: -0.19666667, y: 0.36666667}
+      - {x: -0.19666667, y: 0.3}
+      - {x: -0.19333334, y: 0.26666668}
+      - {x: -0.16333334, y: 0.22333334}
+      - {x: -0.093333334, y: 0.18333334}
+      - {x: -0.07333334, y: 0.18666667}
+      - {x: -0.07333334, y: -0.41}
+      - {x: -0.05, y: -0.58000004}
+      - {x: -0.033333335, y: -0.63666666}
+      - {x: -0.026666667, y: -0.6466667}
+      - {x: 0.013333334, y: -0.6466667}
+      - {x: 0.033333335, y: -0.64}
+      - {x: 0.030000001, y: -0.61333334}
+      - {x: 0.05666667, y: -0.46666667}
+      - {x: 0.06333333, y: -0.40333334}

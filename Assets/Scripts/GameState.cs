@@ -9,6 +9,7 @@ public class GameState : MonoBehaviour
   public List<(Item, int)> inventoryItems = new List<(Item, int)>(6);
   public (Item, int) rangedItem = (null, 0);
   public int health = 5;
+  public bool playerUsedCure;
   void Awake()
   {
     if (instance == null)
