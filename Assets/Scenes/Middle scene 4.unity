@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayContinue: 10
-  toMainMenu: 1
+  toMainMenu: 0
   continueText: {fileID: 269334399}
 --- !u!132 &57438781
 GUIText:
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 57.9
+  m_fontSize: 58.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
