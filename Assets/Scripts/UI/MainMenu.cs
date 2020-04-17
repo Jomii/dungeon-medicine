@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
   public AudioMixer audioMixer;
   public void PlayGame()
   {
+    GameState.instance.Reset();
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
   }
 

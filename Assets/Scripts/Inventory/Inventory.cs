@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
     {
       List<(Item, int)> gamestateItems = GameState.instance.inventoryItems;
 
-      if (gamestateItems.Count > 0 || GameState.instance.rangedItem.Item1 != null)
+      if (GameState.instance.usedInventorySpace > 0 || GameState.instance.rangedItem.Item1 != null)
       {
         // Set items to match GameState
         instance.items = new List<(Item, int)>(gamestateItems);

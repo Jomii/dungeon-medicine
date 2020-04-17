@@ -20,14 +20,24 @@ public class GameState : MonoBehaviour
     }
     else if (instance != this && SceneManager.GetActiveScene().buildIndex == 2)
     {
-      instance.inventoryItems = new List<(Item, int)>(6);
+      instance.inventoryItems.Clear();
       instance.health = 5;
       instance.usedInventorySpace = 0;
       rangedItem = (null, 0);
+
+      Destroy(gameObject);
     }
     else if (instance != this)
     {
       Destroy(gameObject);
     }
+  }
+
+  public void Reset()
+  {
+    instance.inventoryItems.Clear();
+    instance.health = 5;
+    instance.usedInventorySpace = 0;
+    rangedItem = (null, 0);
   }
 }
