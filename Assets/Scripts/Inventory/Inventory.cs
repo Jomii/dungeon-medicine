@@ -32,12 +32,14 @@ public class Inventory : MonoBehaviour
         // Set items to match GameState
         instance.items = new List<(Item, int)>(gamestateItems);
         instance.rangedItem = GameState.instance.rangedItem;
+        instance.usedSpace = GameState.instance.usedInventorySpace;
       }
       else
       {
         // No items saved in GameState, reset inventory
         instance.items.Clear();
         instance.rangedItem = (null, 0);
+        instance.usedSpace = 0;
 
         for (int i = 0; i < 6; i++)
         {
@@ -52,7 +54,7 @@ public class Inventory : MonoBehaviour
 
   public int selectedItemIndex = 0;
   int space = 6;
-  int usedSpace = 0;
+  public int usedSpace = 0;
 
   /* Add item to inventory, returns 
     true if item was added succesfully. */

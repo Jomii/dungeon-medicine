@@ -274,5 +274,6 @@ public class PlayerController : MonoBehaviour
   {
     GameState.instance.health = currentHealth;
     GameState.instance.inventoryItems = new List<(Item, int)>(inventory.items);
+    GameState.instance.usedInventorySpace = inventory.usedSpace;
   }
 }
